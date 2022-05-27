@@ -1,0 +1,28 @@
+@use './scss/' as *;
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@100;300;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  overflow-x: hidden;
+  font-size: 14px;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 500;
+}
+li{
+  list-style-type: none;
+}
+button{
+  border: none;
+  outline: none;
+}
+
+input{
+  outline: none;
+}
+a{
+  text-decoration: none;
+  color: black;
+}

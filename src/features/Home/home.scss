@@ -1,0 +1,17 @@
+@use '../../scss/' as *;
+
+.home{
+    &-banner{
+        padding: 200px 100px;
+        background-position: center;
+        background-size: cover;
+        margin: 20px 0;
+        // .title{
+        //     font-size: 30px;
+        //     color: white;
+        // }
+        // p{
+        //     // color: white;
+        // }
+    }
+}
