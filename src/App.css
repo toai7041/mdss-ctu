@@ -1,0 +1,725 @@
+:root {
+  --color-bg: #026488;
+  --color-text-main: #000000;
+  --color-text-header: #0691c3;
+  --color-primary: #ffff00;
+  --color-bg2: #d0e7f9;
+  --color-form: rgb(78, 158, 255);
+  --color-quest: #96d3ea;
+  --wrapper-height: 87vh;
+  --image-max-width: 300px;
+  --image-margin: 3rem;
+  --font-family: "HK Grotesk";
+  --font-family-header: "HK Grotesk";
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* Import fonts */
+@font-face {
+  font-family: HK Grotesk;
+  src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Regular.otf?v=1603136326027") format("opentype");
+}
+
+@font-face {
+  font-family: HK Grotesk;
+  font-weight: bold;
+  src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Bold.otf?v=1603136323437") format("opentype");
+}
+
+body {
+  font-family: HK Grotesk;
+  background-color: var(--color-bg2);
+}
+
+/* Page structure */
+.wrapper {
+  z-index: 1;
+  width: 100%;
+  border-radius: 10px;
+  min-height: var(--wrapper-height);
+  display: flex;
+  background-color: var(--color-bg2);
+}
+
+h2 {
+  color: #2800ff;
+}
+
+/* sidebar */
+.sidebar-menu {
+  width: 70px;
+  background-color: var(--color-bg);
+  height: 100%;
+  padding: auto;
+  padding-top: 53px;
+  margin-right: 10px;
+  transition: transform 2s;
+  display: block;
+  position: fixed;
+  margin-left: 0px;
+  left: 0px;
+}
+
+
+.sidebar-menu-bot {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+  background-color: var(--color-bg);
+  padding: auto;
+  transition: transform 2s;
+  display: none;
+}
+
+.menuitem {
+  padding: auto;
+  margin: 30px auto;
+  width: 45px;
+  height: 45px;
+  background: var(--color-bg);
+  border-radius: 10px;
+  font-size: 32px;
+  text-align: center;
+  color: white;
+  transition: transform 2s;
+  box-shadow: 0px 0px 3px black;
+
+}
+
+
+
+.menuitem:hover {
+  background: var(--color-bg2);
+  color: black;
+}
+
+a.active {
+  background: var(--color-bg2);
+  color: black;
+}
+
+.menuitem2 {
+  padding: auto;
+  margin: auto 5px;
+  width: 35px;
+  height: 35px;
+  background: var(--color-bg);
+  border-radius: 10px;
+  font-size: 25px;
+  text-align: center;
+  color: white;
+  transition: transform 2s;
+  box-shadow: 0px 0px 3px black;
+}
+
+.menuitem2:hover {
+  background: var(--color-bg2);
+  color: black;
+}
+
+.navbar-toggler {
+  padding: 0px;
+  line-height: 0.7;
+}
+
+@media screen and (max-width: 480px) {
+  .sidebar-menu-bot {
+    display: block;
+    position: fixed;
+    margin-bottom: -4px;
+    bottom: 0px;
+  }
+
+  .sidebar-menu {
+    display: none;
+  }
+}
+
+/* hết sidebar */
+
+/* header*/
+.header {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+  position: fixed;
+  margin-top: 0px;
+  top: 0px;
+  z-index: 2;
+  background: var(--color-bg2);
+}
+
+.info h5 {
+  text-align: center;
+  margin: 10px 30px;
+  color: var(--color-text-header);
+  font-weight: 900;
+  font-family: Verdana;
+  font-style: oblique;
+  font-size: 26px;
+  text-shadow: 1px 1px 2px #000000;
+}
+
+.input-group {
+  font-size: 16px;
+  width: 200px;
+  margin: auto;
+  z-index: 0;
+}
+
+.content {
+  margin-top: 70px;
+  margin-left: 70px;
+  width: 100%;
+  background: var(--color-bg2);
+}
+
+.banner {
+  margin-top: 30px;
+}
+
+.banner img {
+  width: 95%;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0px 4px black;
+}
+
+@media screen and (max-width: 992px) {
+
+  .bannerlog img {
+    max-width: 290px;
+    max-height: 290px;
+  }
+
+  .form-container {
+    max-width: 290px;
+    max-height: 290px;
+  }
+
+  .mid {
+    width: 10px;
+  }
+
+  .info h5 {
+    font-size: 15px;
+  }
+
+  .content {
+    margin-left: 70px;
+  }
+
+  .footer {
+    margin-left: 70px;
+    text-align: center;
+  }
+
+ 
+  .col-md-4{
+    max-width: 30%;
+  }
+
+}
+
+@media screen and (max-width: 576px) {
+  .header .info {
+    width: 100%;
+  }
+
+  .header {
+    margin-left: 0px;
+    padding-left: 0px;
+  }
+
+  .bannerlog img {
+    max-width: 270px;
+    max-height: 270px;
+  }
+
+  .form-container {
+    max-width: 270px;
+    max-height: 270px;
+  }
+
+  .banner img {
+    max-width: 90%;
+  }
+
+  .content {
+    margin-left: 0px;
+    margin-top: 70px;
+  }
+
+  .info h5 {
+    font-size: 13px;
+  }
+
+  .footer {
+    padding: 5px 20px;
+    margin-left: 0px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  iframe {
+    width: 270px;
+  }
+
+  .form-control {
+    height: calc(1em + 0.5rem + 2px);
+    font-size: 16px;
+  }
+
+  .header .info {
+    width: 100%;
+  }
+
+  .input-group .btn {
+    height: calc(1em + 0.8rem + 2px);
+    font-size: 10px;
+    padding: auto;
+  }
+
+  .intro {
+    padding: 10px;
+  }
+
+  .intro p {
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .mid-intro .SC {
+    font-size: 18px;
+  }
+
+  .top-intro .MDSS {
+    font-size: 18px;
+  }
+
+  .col-6{
+    max-width: 42%;
+  }
+  
+
+}
+
+@media screen and (max-width: 290px) {
+
+  .bannerlog img {
+    max-width: 250px;
+    max-height: 250px;
+  }
+
+  .form-container {
+    max-width: 250px;
+    max-height: 250px;
+  }
+
+  .content {
+    margin-left: 0px;
+    margin-top: 100px;
+  }
+
+  .footer {
+    padding: 5px;
+    margin-left: 0px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  .menuitem2 {
+    margin-left: -5px;
+  }
+
+  iframe {
+    width: 250px;
+  }
+}
+
+/* hết header */
+
+/* tình huống */
+
+.col-lg-2{
+  max-width: 15%;
+}
+
+.question {
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+}
+
+.situation {
+  box-shadow: 0 0px 5px black;
+  justify-content: center;
+  width: 200px;
+  height: 250px;
+  margin: 0px 10px;
+  padding: 5px;
+  background: var(--color-quest);
+  border-radius: 10px;
+}
+
+.situation img {
+  margin: 0px auto;
+  border-radius: 10px;
+  width: 100%;
+  height: 60%;
+  margin-bottom: 10px;
+}
+
+.situation p {
+  margin: 0px 10px;
+  font-weight: bold;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
+
+/* hết tình huống */
+
+/* Footer */
+.footer {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 15px;
+  background: var(--color-bg2);
+  border-top: 2px solid rgb(15, 51, 56);
+}
+
+.logo {
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  display: flex;
+}
+
+.infof {
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.footer img {
+  width: 30%;
+  margin: auto;
+
+}
+
+.footer iframe {
+  margin: 15px 30px;
+  border-radius: 15px;
+  box-shadow: 0 0px 5px black;
+}
+
+.school {
+  color: blue;
+  font-weight: bold;
+}
+
+.footer i {
+  color: blue;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: none;
+  color: var(--color-bg);
+}
+
+.footer p {
+  font-size: 14px;
+  margin: 15px;
+}
+
+#top-up {
+  font-size: 2.8rem;
+  cursor: pointer;
+  position: fixed;
+  z-index: 9999;
+  color: #0861b9;
+  bottom: 50px;
+  right: 15px;
+  display: none;
+}
+
+#top-up:hover {
+  color: rgb(60, 175, 252)
+}
+
+.copy {
+  width: 100%;
+  text-align: center;
+  color: grey;
+  font-style: oblique;
+}
+
+.copy p {
+  font-size: 10px;
+
+}
+
+/* hết footer */
+
+/* Menu home */
+.tog {
+  margin-bottom: 10px;
+}
+
+nav {
+  margin-left: 15px;
+  margin-top: 25px;
+  font-size: 18px;
+}
+
+.submenu {
+  transition: transform 2s;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  border-radius: 30px;
+}
+
+.submenu a {
+  /* box-shadow: 0 0px 1px var(--color-bg); */
+  transition: transform 2s;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  margin: 5px 5px;
+  padding: 12px;
+  border-radius: 30px;
+}
+
+a.dropdown-item {
+  color: black;
+  font-weight: bold;
+  border-radius: 0px;
+  margin: 0px;
+  padding: 10px;
+}
+
+.submenu a:hover {
+  background: var(--color-bg);
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 30px;
+
+}
+
+.all select {
+  transition: transform 2s;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  padding: 2px;
+  position: relative;
+  margin-left: 60%;
+}
+
+/* hết menuu home */
+
+
+
+/* Đăng nhập */
+.bannerlog {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.mid {
+  margin: auto;
+  display: flex;
+  width: 250px;
+}
+
+.bannerlog img {
+  height: 330px;
+  width: 350px;
+  box-shadow: 0 0px 5px black;
+
+}
+
+.row {
+  --bs-gutter-x: 0rem;
+  margin-right: 0px;
+  margin-left: 0px;
+
+}
+
+.account-page {
+  width: 100%;
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.account-page a {
+  color: white;
+}
+
+.form-container {
+  display: flex;
+  width: 320px;
+  height: 330px;
+  position: relative;
+  text-align: center;
+  padding: 2% 0;
+  margin: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--color-form);
+  justify-content: space-between;
+  box-shadow: 0 0px 5px rgb(0, 0, 0);
+}
+
+.form-btn {
+  display: inline-block;
+}
+
+.title-log {
+  font-size: 25px;
+  font-family: Verdana;
+  width: 100%;
+  height: 10%;
+  font-weight: bold;
+  padding: 5px 0.5vw;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  display: inline-block;
+}
+
+.title-log h5 {
+  font-family: Verdana;
+  width: 100%;
+  font-weight: bold;
+}
+
+.form-container form {
+  max-width: 100%;
+  padding: 0 20px;
+  position: absolute;
+  top: 10%;
+  transition: transform 0.25s;
+}
+
+form .btn1 {
+  width: 50%;
+  border-radius: 10px;
+  background: #e3f460;
+  cursor: pointer;
+  margin: 10px 0;
+  padding: 5px;
+}
+
+form .btn1:hover {
+  background: #fff;
+}
+
+form .btn:focus {
+  outline: 1px solid yellow;
+}
+
+form a {
+  font-size: 12px;
+}
+
+.bannerlog img {
+  border-radius: 10px;
+}
+
+.imgbanner {
+  border: 2px solid #e3f2fd;
+}
+
+/* hết đăng nhập */
+
+/* Giới thiệu */
+.intro {
+  border-radius: 10px;
+  box-shadow: 0 0px 5px black;
+  color: #004444;
+  font-size: 30px;
+  margin: 30px 30px;
+  padding: 30px;
+  font-weight: bold;
+  font-family: Verdana;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.intro p {
+  margin: 0px;
+}
+
+.top-intro,
+.mid-intro,
+.bot-intro {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+
+
+}
+
+.MDSS {
+  color: red;
+  font-size: 32px;
+  text-shadow: 0 0px 4px rgb(0, 72, 96);
+
+}
+
+.SP {
+  color: rgb(3, 112, 185);
+}
+
+.interesting {
+  color: rgb(243, 232, 78);
+  text-shadow: 0 0px 4px rgb(255, 0, 0);
+
+}
+
+.SC {
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0px 4px black;
+  font-size: 32px;
+}
+
+.Thanks {
+  color: rgb(254, 60, 92);
+}
+
+/* hết Giới thiệu */

@@ -1,0 +1,52 @@
+@use '../../scss/' as *;
+
+.input{
+    width: 100%;
+    height: 10%;
+    position: relative;
+    margin-bottom: 30px;
+    // font-size: 1vw;
+
+    padding-bottom: 20px;
+    &-label{
+        text-transform: capitalize;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-90%);
+        left: 11px;
+        user-select: none;
+        pointer-events: none;
+        transition: all .25s ease;
+    }
+    &-field{
+        // font-size: 1vw;
+        width: 100%;
+        height: 100%;
+        padding:15px 20px;
+        border-radius: 10px;
+        border: 1px solid #eee;
+        outline: none;
+        transition: all .25s ease;
+        &::placeholder {
+            opacity: 0;
+            visibility: hidden;
+            // visibility: visible;
+            transition: all .25s ease;
+        }
+        &:focus {
+            border: 1px solid #6A5AF9;
+            &::placeholder{
+                opacity: 1;
+                visibility: visible;
+            }
+           
+        }
+    }
+    &-field:not(:placeholder-shown) + &-label,
+    &-field:focus + &-label{
+        color: #000000;
+        top:0;
+        padding:0 2px;
+        display: inline-block;
+    }
+}
