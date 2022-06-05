@@ -1,4 +1,4 @@
-import React,  {useLocation }from 'react';
+import React from 'react';
 
 function Sidebar() {
   
@@ -13,11 +13,11 @@ return (
     </div>
   </a>
   
-  <a href="/Question" className="target">
+  {/* <a href="/Question" className="target">
     <div className="menuitem" data-toggle="popover-hover4" data-content="Câu hỏi">
-      <li  className="fa fa-question"></li>
+      <li  className="fa fa-question-circle"></li>
     </div>
-  </a>
+  </a> */}
   <a href="/#" className="target">
     <div className="menuitem" data-toggle="popover-hover3" data-content="Tài liệu">
       <li  className="fa fa-book"></li>
@@ -25,7 +25,7 @@ return (
   </a>
   <a href="/Introduce" className="target">
     <div className="menuitem" data-toggle="popover-hover6" data-content="Giới thiệu">
-      <li  className="fa fa-info"></li>
+      <li  className="fa fa-info-circle"></li>
     </div>
   </a>
   <a href="/#" className="target">

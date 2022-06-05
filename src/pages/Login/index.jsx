@@ -6,7 +6,6 @@ import './login.scss'
 import { loginUser } from '../../redux/apiRequest'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
 
 
 function Login() {
@@ -21,7 +20,7 @@ function Login() {
       },
       validationSchema: Yup.object({
           email: Yup.string().email().required(" "),
-          password: Yup.string().min(8, "Must be 8 characters or more").required(" ")
+          password: Yup.string().min(8, "").required(" ")
       }),
 
       onSubmit: (values) => {
@@ -30,7 +29,6 @@ function Login() {
               password: values.password
           }
           loginUser(user,dispatch, navigate)
-          // axios.post("http://localhost:2000/api/v1/auth/login", user)
           // console.log(user)
       }
   })
@@ -38,13 +36,9 @@ function Login() {
  
   return (
     <>
-    
-    
-
     <div className="account-page">
         <div className="row">
         
-
           <div className="form-container col-sm-5" >
            
             <div className="title-log"><h5>Đăng nhập tài khoản</h5></div>
@@ -55,7 +49,7 @@ function Login() {
                 name="email"
                 id=""
                 type="text"
-                placeHolder="Email"
+                placeHolder=""
                 value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur}/>
                   {formik.errors.email  ? <p >{formik.errors.email}</p> : ""}
               <Input
@@ -63,7 +57,7 @@ function Login() {
                 name="password"
                 id=""
                 type="password"
-                placeHolder="Mật khẩu"
+                placeHolder=""
                 value={formik.values.password} onChange={formik.handleChange} onBlur={formik.handleBlur}/>
                 {formik.errors.password ? <p >{formik.errors.password}</p> : ""}
               <button name="dangnhap" type="submit" className="btn1 login-submit">

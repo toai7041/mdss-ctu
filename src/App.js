@@ -13,6 +13,7 @@ import Login from './pages/Login';
 import ListQuestion from './pages/Question';
 import Register from './pages/Register';
 import Introduce from './pages/Introduce';
+import QuestionByCate from './components/question/QuestionByCate';
 function App() {
   return (
     <>
@@ -29,7 +30,9 @@ function App() {
             <Route path='/Login' element={<Login />} />
             <Route path='/Introduce' element={<Introduce />} />
             <Route path='/Register' element={<Register />} />
-            <Route path='/Question' element={<ListQuestion />} />
+            <Route path='/cate/:id' element={<QuestionByCate />} />
+            
+            {/* <Route path='/Question' element={<ListQuestion />} /> */}
         </Routes>
         </div>
       </div>

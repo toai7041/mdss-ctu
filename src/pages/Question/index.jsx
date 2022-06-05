@@ -1,13 +1,16 @@
 import React from 'react';
 import Nav from "../../components/layout/Nav";
-import Question from "../../components/question"
-function ListQuestion() {
-   
-return (
+import Question from "../../components/question";
+
+function Listquestion() {
+  return (
 <>
     <Nav/>
     <Question/>
 </>
 )
 }
-export default ListQuestion
+
+export default Listquestion;
+
+   

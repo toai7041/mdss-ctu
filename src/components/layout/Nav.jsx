@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCate } from '../../redux/apiRequest';
+import  {Link} from 'react-router-dom';
 
 
 function Nav() {
-  
   const cate = useSelector(state => state.cate.cates?.allCate)
   const dispatch = useDispatch()
     useEffect(() => {
@@ -24,9 +24,11 @@ return (
       <ul className="navbar-nav mr-auto">
 
         {cate?.map(item => (
-        <div className="submenu nav-item" key={item._id}>
+        <div className="submenu nav-item" key={item._id} id={item._id} >
           <li className="nav-item">
-            <a className="mnitem " href="/#"> {item.name}</a>
+            <Link to={`/cate/${item._id}`}>
+            <a className="mnitem" href="/#"> {item.name}</a>
+            </Link>
           </li>
         </div>
         ))}

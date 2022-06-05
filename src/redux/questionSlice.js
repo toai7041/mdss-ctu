@@ -44,6 +44,8 @@ export const questionSlice = createSlice({
         getAnQuestionFail: (state) => {
             state.question.error = true
         }
+
+      
     }
 })
 

@@ -1,11 +1,11 @@
 :root {
-  --color-bg: #026488;
+  --color-bg: #07769e;
   --color-text-main: #000000;
   --color-text-header: #0691c3;
   --color-primary: #ffff00;
-  --color-bg2: #d0e7f9;
-  --color-form: rgb(78, 158, 255);
-  --color-quest: #96d3ea;
+  --color-bg2: #cfe1ee;
+  --color-form: #3f96d5;
+  --color-quest: #a0e2ffe1;
   --wrapper-height: 87vh;
   --image-max-width: 300px;
   --image-margin: 3rem;
@@ -48,10 +48,6 @@ body {
   background-color: var(--color-bg2);
 }
 
-h2 {
-  color: #2800ff;
-}
-
 /* sidebar */
 .sidebar-menu {
   width: 70px;
@@ -67,7 +63,6 @@ h2 {
   left: 0px;
 }
 
-
 .sidebar-menu-bot {
   align-items: center;
   display: flex;
@@ -76,7 +71,6 @@ h2 {
   height: 50px;
   background-color: var(--color-bg);
   padding: auto;
-  transition: transform 2s;
   display: none;
 }
 
@@ -90,26 +84,21 @@ h2 {
   font-size: 32px;
   text-align: center;
   color: white;
-  transition: transform 2s;
+  transition: transform 0.3s;
   box-shadow: 0px 0px 3px black;
 
 }
 
-
-
 .menuitem:hover {
   background: var(--color-bg2);
-  color: black;
-}
-
-a.active {
-  background: var(--color-bg2);
-  color: black;
+  color: var(--color-bg);
+  transform: scale(0.95);
+  box-shadow: none;
 }
 
 .menuitem2 {
   padding: auto;
-  margin: auto 5px;
+  margin: auto 35px;
   width: 35px;
   height: 35px;
   background: var(--color-bg);
@@ -117,33 +106,21 @@ a.active {
   font-size: 25px;
   text-align: center;
   color: white;
-  transition: transform 2s;
+  transition: transform 0.3s;
   box-shadow: 0px 0px 3px black;
 }
 
 .menuitem2:hover {
   background: var(--color-bg2);
-  color: black;
+  color: var(--color-bg);
+  transform: scale(0.95);
+  box-shadow: none;
 }
 
 .navbar-toggler {
   padding: 0px;
   line-height: 0.7;
 }
-
-@media screen and (max-width: 480px) {
-  .sidebar-menu-bot {
-    display: block;
-    position: fixed;
-    margin-bottom: -4px;
-    bottom: 0px;
-  }
-
-  .sidebar-menu {
-    display: none;
-  }
-}
-
 /* hết sidebar */
 
 /* header*/
@@ -169,9 +146,11 @@ a.active {
   color: var(--color-text-header);
   font-weight: 900;
   font-family: Verdana;
-  font-style: oblique;
+  font-style: italic;
   font-size: 26px;
   text-shadow: 1px 1px 2px #000000;
+  /* box-shadow: 0 0px 5px black; */
+  /* padding: 5px 10px; */
 }
 
 .input-group {
@@ -196,9 +175,382 @@ a.active {
   width: 95%;
   margin: 20px;
   border-radius: 10px;
-  box-shadow: 0 0px 4px black;
+  box-shadow: 0 2px 4px black;
+  transition: transform 0.3s;
 }
 
+.banner img:hover {
+  box-shadow: none;
+  transform: scale(0.995);
+}
+/* 
+.col-lg-2{
+  max-width: 15%;
+} */
+
+/* hết header */
+
+/* tình huống */
+.question {
+  display: flex;
+  margin: 50px 10px;
+  padding: 10px;
+}
+
+.situation {
+  box-shadow: 0px 2px 6px black;
+  justify-content: center;
+  height: 280px;
+  margin: 0px 10px;
+  padding: 0px;
+  background: var(--color-quest);
+  border-radius: 11px;
+  transition: transform 0.2s;
+}
+
+.situation:hover {
+  transform: scale(0.985);
+  box-shadow: none;
+  /* border: 1px solid rgb(0, 0, 0); */
+}
+.situation img {
+  margin: 0px;
+  border-radius: 10px;
+  width: 100%;
+  height: 60%;
+  margin-bottom: 10px;
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.situation p {
+  font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+  font-size: 14px;
+  margin: 0px 10px;
+  /* font-weight: bold; */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
+
+/* hết tình huống */
+
+/* Footer */
+.footer {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-top: 15px;
+  background: var(--color-bg2);
+  border-top: 2px solid rgb(15, 51, 56);
+}
+
+.logo {
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  display: flex;
+}
+
+.infof {
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.footer img {
+  width: 30%;
+  margin: auto;
+  box-shadow: 0px 2px 6px black;
+  border-radius: 50%;
+}
+
+.footer iframe {
+  margin: 15px 30px;
+  border-radius: 15px;
+  box-shadow: 0px 2px 6px black;
+}
+
+.school {
+  color: blue;
+  font-weight: bold;
+}
+
+.footer i {
+  color: blue;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: none;
+  color: var(--color-bg);
+}
+
+.footer p {
+  font-size: 14px;
+  margin: 15px;
+}
+
+#top-up {
+  font-size: 2.8rem;
+  cursor: pointer;
+  position: fixed;
+  z-index: 9999;
+  color: #0861b9;
+  bottom: 50px;
+  right: 15px;
+  display: none;
+}
+
+#top-up:hover {
+  color: rgb(60, 175, 252)
+}
+
+.copy {
+  width: 100%;
+  text-align: center;
+  color: grey;
+  font-style: oblique;
+}
+
+.copy p {
+  font-size: 10px;
+}
+
+/* hết footer */
+
+/* Menu home */
+.tog {
+  margin-bottom: 10px;
+}
+
+nav {
+  margin-left: 15px;
+  margin-top: 25px;
+  font-size: 18px;
+}
+
+.submenu {
+  transition: transform 0.5s;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  border-radius: 30px;
+}
+.submenu:hover{
+  transform: scale(0.95);
+}
+.submenu a {
+  transition: transform 0.5s;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  margin: 5px 5px;
+  padding: 12px;
+  border-radius: 30px;
+}
+
+a.dropdown-item {
+  color: black;
+  font-weight: bold;
+  border-radius: 0px;
+  margin: 0px;
+  padding: 10px;
+}
+
+.submenu a:hover {
+  background: var(--color-bg);
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.all select {
+  transition: transform 2s;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  padding: 2px;
+  position: relative;
+  margin-left: 60%;
+}
+
+/* hết menuu home */
+
+/* Đăng nhập */
+.bannerlog {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.mid {
+  margin: auto;
+  display: flex;
+  width: 250px;
+}
+
+.bannerlog img {
+  height: 330px;
+  width: 350px;
+  box-shadow: 0 0px 5px black;
+}
+
+.row {
+  --bs-gutter-x: 0rem;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.account-page {
+  width: 100%;
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.account-page a {
+  color: white;
+}
+
+.form-container {
+  display: flex;
+  width: 320px;
+  height: 330px;
+  position: relative;
+  text-align: center;
+  padding: 2% 0;
+  margin: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--color-form);
+  justify-content: space-between;
+  box-shadow: 0 0px 5px rgb(0, 0, 0);
+}
+
+.form-btn {
+  display: inline-block;
+}
+
+.title-log {
+  font-size: 25px;
+  font-family: Verdana;
+  width: 100%;
+  height: 10%;
+  font-weight: bold;
+  padding: 5px 0.5vw;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  display: inline-block;
+}
+
+.title-log h5 {
+  font-family: Verdana;
+  width: 100%;
+  font-weight: bold;
+}
+
+.form-container form {
+  max-width: 100%;
+  padding: 0 20px;
+  position: absolute;
+  top: 10%;
+  transition: transform 0.25s;
+}
+
+form .btn1 {
+  width: 50%;
+  border-radius: 10px;
+  background: #e3f460;
+  cursor: pointer;
+  margin: 5px 0;
+  padding: 5px;
+}
+
+form .btn1:hover {
+  background: #fff;
+}
+
+form a {
+  font-size: 12px;
+}
+
+.bannerlog img {
+  border-radius: 10px;
+}
+
+.imgbanner {
+  border: 2px solid #e3f2fd;
+}
+/* hết đăng nhập */
+
+/* Giới thiệu */
+.intro {
+  border-radius: 10px;
+  box-shadow: 0 0px 5px black;
+  color: #004444;
+  font-size: 30px;
+  margin: 30px 30px;
+  padding: 30px;
+  font-weight: bold;
+  font-family: Verdana;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.intro p {
+  margin: 0px;
+}
+
+.top-intro,
+.mid-intro,
+.bot-intro {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.MDSS {
+  color: red;
+  font-size: 32px;
+  text-shadow: 0 0px 4px rgb(0, 72, 96);
+}
+
+.SP {
+  color: rgb(3, 112, 185);
+}
+
+.interesting {
+  color: rgb(243, 232, 78);
+  text-shadow: 0 0px 4px rgb(255, 0, 0);
+
+}
+
+.SC {
+  color: rgb(255, 255, 255);
+  text-shadow: 0 0px 4px black;
+  font-size: 32px;
+}
+
+.Thanks {
+  color: rgb(254, 60, 92);
+}
+/* hết Giới thiệu */
+
+/* responsive */
 @media screen and (max-width: 992px) {
 
   .bannerlog img {
@@ -227,12 +579,12 @@ a.active {
     margin-left: 70px;
     text-align: center;
   }
-
- 
+  /* .situation p{
+    font-size: 12px;
+  } */
   .col-md-4{
     max-width: 30%;
   }
-
 }
 
 @media screen and (max-width: 576px) {
@@ -250,6 +602,16 @@ a.active {
     max-height: 270px;
   }
 
+  .sidebar-menu-bot {
+    display: block;
+    position: fixed;
+    margin-bottom: -2px;
+    bottom: 0px;
+  }
+
+  .sidebar-menu {
+    display: none;
+  }
   .form-container {
     max-width: 270px;
     max-height: 270px;
@@ -315,8 +677,16 @@ a.active {
   .col-6{
     max-width: 42%;
   }
-  
+  .situation{
+    height: 200px;
+  }
+  .situation p{
+    font-size: 10px;
+  }
 
+  li.nav-item {
+    margin-top: 15px;
+}
 }
 
 @media screen and (max-width: 290px) {
@@ -351,375 +721,4 @@ a.active {
     width: 250px;
   }
 }
-
-/* hết header */
-
-/* tình huống */
-
-.col-lg-2{
-  max-width: 15%;
-}
-
-.question {
-  display: flex;
-  margin: 10px;
-  padding: 10px;
-}
-
-.situation {
-  box-shadow: 0 0px 5px black;
-  justify-content: center;
-  width: 200px;
-  height: 250px;
-  margin: 0px 10px;
-  padding: 5px;
-  background: var(--color-quest);
-  border-radius: 10px;
-}
-
-.situation img {
-  margin: 0px auto;
-  border-radius: 10px;
-  width: 100%;
-  height: 60%;
-  margin-bottom: 10px;
-}
-
-.situation p {
-  margin: 0px 10px;
-  font-weight: bold;
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-break: break-word;
-}
-
-/* hết tình huống */
-
-/* Footer */
-.footer {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding-top: 15px;
-  background: var(--color-bg2);
-  border-top: 2px solid rgb(15, 51, 56);
-}
-
-.logo {
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-  display: flex;
-}
-
-.infof {
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-}
-
-.footer img {
-  width: 30%;
-  margin: auto;
-
-}
-
-.footer iframe {
-  margin: 15px 30px;
-  border-radius: 15px;
-  box-shadow: 0 0px 5px black;
-}
-
-.school {
-  color: blue;
-  font-weight: bold;
-}
-
-.footer i {
-  color: blue;
-}
-
-.footer a {
-  text-decoration: none;
-}
-
-.footer a:hover {
-  text-decoration: none;
-  color: var(--color-bg);
-}
-
-.footer p {
-  font-size: 14px;
-  margin: 15px;
-}
-
-#top-up {
-  font-size: 2.8rem;
-  cursor: pointer;
-  position: fixed;
-  z-index: 9999;
-  color: #0861b9;
-  bottom: 50px;
-  right: 15px;
-  display: none;
-}
-
-#top-up:hover {
-  color: rgb(60, 175, 252)
-}
-
-.copy {
-  width: 100%;
-  text-align: center;
-  color: grey;
-  font-style: oblique;
-}
-
-.copy p {
-  font-size: 10px;
-
-}
-
-/* hết footer */
-
-/* Menu home */
-.tog {
-  margin-bottom: 10px;
-}
-
-nav {
-  margin-left: 15px;
-  margin-top: 25px;
-  font-size: 18px;
-}
-
-.submenu {
-  transition: transform 2s;
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-  border-radius: 30px;
-}
-
-.submenu a {
-  /* box-shadow: 0 0px 1px var(--color-bg); */
-  transition: transform 2s;
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-  margin: 5px 5px;
-  padding: 12px;
-  border-radius: 30px;
-}
-
-a.dropdown-item {
-  color: black;
-  font-weight: bold;
-  border-radius: 0px;
-  margin: 0px;
-  padding: 10px;
-}
-
-.submenu a:hover {
-  background: var(--color-bg);
-  text-decoration: none;
-  color: white;
-  cursor: pointer;
-  border-radius: 30px;
-
-}
-
-.all select {
-  transition: transform 2s;
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-  padding: 2px;
-  position: relative;
-  margin-left: 60%;
-}
-
-/* hết menuu home */
-
-
-
-/* Đăng nhập */
-.bannerlog {
-  margin: auto;
-  display: flex;
-  justify-content: center;
-}
-
-
-
-.mid {
-  margin: auto;
-  display: flex;
-  width: 250px;
-}
-
-.bannerlog img {
-  height: 330px;
-  width: 350px;
-  box-shadow: 0 0px 5px black;
-
-}
-
-.row {
-  --bs-gutter-x: 0rem;
-  margin-right: 0px;
-  margin-left: 0px;
-
-}
-
-.account-page {
-  width: 100%;
-  padding: 50px 0;
-  display: flex;
-  justify-content: center;
-  margin: auto;
-}
-
-.account-page a {
-  color: white;
-}
-
-.form-container {
-  display: flex;
-  width: 320px;
-  height: 330px;
-  position: relative;
-  text-align: center;
-  padding: 2% 0;
-  margin: auto;
-  border-radius: 10px;
-  overflow: hidden;
-  background: var(--color-form);
-  justify-content: space-between;
-  box-shadow: 0 0px 5px rgb(0, 0, 0);
-}
-
-.form-btn {
-  display: inline-block;
-}
-
-.title-log {
-  font-size: 25px;
-  font-family: Verdana;
-  width: 100%;
-  height: 10%;
-  font-weight: bold;
-  padding: 5px 0.5vw;
-  color: rgb(0, 0, 0);
-  cursor: pointer;
-  display: inline-block;
-}
-
-.title-log h5 {
-  font-family: Verdana;
-  width: 100%;
-  font-weight: bold;
-}
-
-.form-container form {
-  max-width: 100%;
-  padding: 0 20px;
-  position: absolute;
-  top: 10%;
-  transition: transform 0.25s;
-}
-
-form .btn1 {
-  width: 50%;
-  border-radius: 10px;
-  background: #e3f460;
-  cursor: pointer;
-  margin: 10px 0;
-  padding: 5px;
-}
-
-form .btn1:hover {
-  background: #fff;
-}
-
-form .btn:focus {
-  outline: 1px solid yellow;
-}
-
-form a {
-  font-size: 12px;
-}
-
-.bannerlog img {
-  border-radius: 10px;
-}
-
-.imgbanner {
-  border: 2px solid #e3f2fd;
-}
-
-/* hết đăng nhập */
-
-/* Giới thiệu */
-.intro {
-  border-radius: 10px;
-  box-shadow: 0 0px 5px black;
-  color: #004444;
-  font-size: 30px;
-  margin: 30px 30px;
-  padding: 30px;
-  font-weight: bold;
-  font-family: Verdana;
-  flex-wrap: wrap;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-
-.intro p {
-  margin: 0px;
-}
-
-.top-intro,
-.mid-intro,
-.bot-intro {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  text-align: center;
-
-
-}
-
-.MDSS {
-  color: red;
-  font-size: 32px;
-  text-shadow: 0 0px 4px rgb(0, 72, 96);
-
-}
-
-.SP {
-  color: rgb(3, 112, 185);
-}
-
-.interesting {
-  color: rgb(243, 232, 78);
-  text-shadow: 0 0px 4px rgb(255, 0, 0);
-
-}
-
-.SC {
-  color: rgb(255, 255, 255);
-  text-shadow: 0 0px 4px black;
-  font-size: 32px;
-}
-
-.Thanks {
-  color: rgb(254, 60, 92);
-}
-
-/* hết Giới thiệu */
+/* hết responsive */

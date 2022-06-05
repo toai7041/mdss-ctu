@@ -91,10 +91,12 @@ export const getAllQuestion = async(dispatch) => {
     try {
         const res = await axios.get(`${apiConfig.baseUrl}/question/`)
         dispatch(getAllQuestionAccess(res.data))
+        console.log(res.data);
     } catch (error) {
         dispatch(getAllQuestionFail(error.response.data))
     }
 }
+
 export const getAnQuestion = async(dispatch, id) => {
     dispatch(getAnQuestionStart())
     try {

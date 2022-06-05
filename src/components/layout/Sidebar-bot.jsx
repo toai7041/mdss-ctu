@@ -12,11 +12,11 @@ return (
 <div className="navbar navbar-expand-sm">
   
  
-  <a href="/Question" >
+  {/* <a href="/Question" >
     <div className="menuitem2" data-toggle="popover-hover4" data-content="Câu hỏi">
-      <li  className="fa fa-question"></li>
+      <li  className="fa fa-question-circle"></li>
     </div>
-  </a>
+  </a> */}
   <a href="/#">
     <div className="menuitem2" data-toggle="popover-hover3" data-content="Tài liệu">
       <li  className="fa fa-book"></li>
@@ -29,7 +29,7 @@ return (
   </a>
   {/* <a href="/Introduce" >
     <div className="menuitem2" data-toggle="popover-hover6" data-content="Giới thiệu">
-      <li  className="fa fa-info"></li>
+      <li  className="fa fa-info-circle"></li>
     </div>
   </a> */}
   <a href="/#">
@@ -37,11 +37,11 @@ return (
       <li  className="fa fa-user"></li>
     </div>
   </a>
-  <a href="/#">
+  {/* <a href="/#">
     <div className="menuitem2" data-toggle="popover-hover5" data-content="Đăng xuất">
       <li  className="fa fa-sign-out"></li>
     </div>
-  </a>
+  </a> */}
   </div>
 </div>
 

@@ -5,21 +5,20 @@
     height: 10%;
     position: relative;
     margin-bottom: 30px;
-    // font-size: 1vw;
-
     padding-bottom: 20px;
     &-label{
+        background: #FFFFFF;
+        border-radius: 5px;
         text-transform: capitalize;
         position: absolute;
         top: 50%;
-        transform: translateY(-90%);
+        transform: translateY(-50%);
         left: 11px;
         user-select: none;
         pointer-events: none;
         transition: all .25s ease;
     }
     &-field{
-        // font-size: 1vw;
         width: 100%;
         height: 100%;
         padding:15px 20px;
