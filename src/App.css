@@ -50,6 +50,7 @@ body {
 
 /* sidebar */
 .sidebar-menu {
+  z-index: 10000;
   width: 70px;
   background-color: var(--color-bg);
   height: 100%;
@@ -192,37 +193,44 @@ body {
 
 /* tình huống */
 .question {
+  flex-wrap: wrap;
   display: flex;
   margin: 50px 10px;
   padding: 10px;
 }
 
 .situation {
+	overflow:hidden;
   box-shadow: 0px 2px 6px black;
   justify-content: center;
   height: 280px;
-  margin: 0px 10px;
+  margin: 15px 10px;
   padding: 0px;
   background: var(--color-quest);
-  border-radius: 11px;
+  border-radius: 10px;
   transition: transform 0.2s;
 }
 
 .situation:hover {
   transform: scale(0.985);
   box-shadow: none;
+  background: white;
   /* border: 1px solid rgb(0, 0, 0); */
 }
 .situation img {
   margin: 0px;
-  border-radius: 10px;
+  border-radius: 10px 10px 0  0;
   width: 100%;
   height: 60%;
   margin-bottom: 10px;
-  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  /* -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-}
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);*/
+} 
+
+/* .situation img:hover {
+  transform: scale(0.985);
+} */
 
 .situation p {
   font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
@@ -561,10 +569,6 @@ form a {
   .form-container {
     max-width: 290px;
     max-height: 290px;
-  }
-
-  .mid {
-    width: 10px;
   }
 
   .info h5 {
