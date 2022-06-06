@@ -80,11 +80,12 @@ $(function () {
 
 <script>
   var offset = 250;
+  var onset = 600;
   var duration = 600;
 
   window.onscroll = function() {myFunction()};
   function myFunction(){
-  if ($(this).scrollTop() > offset){
+  if ($(this).scrollTop() > offset && $(this).scrollTop()  < onset  ){
   $('#visible').fadeOut(duration);
   $('#visible2').fadeOut(duration);}
   else{
