@@ -2,7 +2,7 @@ function Introduce() {
 return (
 <div className="intro">
     <div className="top-intro">
-        <p>Xin chào bạn, chào mừng bạn đã đến với&nbsp;</p>
+        <p>Chào mừng bạn đã đến với&nbsp;</p>
         <p className="MDSS">MDSS !!!</p>
     </div>
     <div className="mid-intro">

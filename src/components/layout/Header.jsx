@@ -1,7 +1,7 @@
 
 function Header() {
     return ( 
-        <div className="header">
+        <div className="header" id="visible">
         <div className="info">
           {/* <h5>Medical Diagnostic Support System</h5> */}
           <h5><b>HỆ THỐNG HỖ TRỢ CHẨN ĐOÁN Y KHOA</b></h5>

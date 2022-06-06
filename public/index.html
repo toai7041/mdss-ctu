@@ -64,7 +64,7 @@ $(function () {
 </script>
 
 <script>
-  var offset = 20;
+  var offset = 50;
   var duration = 400;
   $(function(){
   $(window).scroll(function () {
@@ -77,4 +77,32 @@ $(function () {
   });
   });
   </script>
+
+<script>
+  var offset = 250;
+  var duration = 600;
+
+  window.onscroll = function() {myFunction()};
+  function myFunction(){
+  if ($(this).scrollTop() > offset){
+  $('#visible').fadeOut(duration);
+  $('#visible2').fadeOut(duration);}
+  else{
+  $('#visible').fadeIn(duration);
+  $('#visible2').fadeIn(duration);
+  }
+  };
+  </script>
+
+<script>
+  $("select").click(function() {
+  var open = $(this).data("isopen");
+  if(open) {
+    window.location.href = $(this).val()
+  }
+ 
+  $(this).data("isopen", !open);
+});
+</script>
+  
 </html>

@@ -1,18 +1,41 @@
-import React, { useState } from 'react'
-import Input from '../../components/input'
-import {useFormik} from 'formik'
-import * as Yup from 'yup'
-import './login.scss'
-import { loginUser } from '../../redux/apiRequest'
-import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import Input from '../../components/input';
+import {useFormik} from 'formik';
+import * as Yup from 'yup';
+import './login.scss';
+import { loginUser } from '../../redux/apiRequest';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { deleteUser, getAllUser } from "../../redux/apiRequest";
+
 
 
 function Login() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     // const error = useSelector(state => state.auth.login?.isError)
-    
+    // const user = useSelector(state => state.auth.login?.user)
+    // const userList = useSelector(state => state.user.users?.allUser)
+
+    // useEffect(() => {
+    //   if(!user){
+    //     navigate("/login")
+    //   }
+    //   else{
+    //     navigate("/")
+    //   }
+    //   if(user?.token){
+    //     getAllUser(user.token, dispatch)
+    //   }
+    // },[])
+
+    // const handleDelete = () => {
+    //     if(user?.token){
+    //         deleteUser(user.token,dispatch, user.id)
+    //     }
+    // }
+
     const formik = useFormik({
       initialValues:{
           email:"",
