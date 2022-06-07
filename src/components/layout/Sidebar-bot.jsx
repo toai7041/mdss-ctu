@@ -1,17 +1,12 @@
 import React from 'react'
 
-
-
-
 function Sidebar_bot() {
-
 
 return (
   
-<div className="sidebar-menu-bot">
+<div className="sidebar-menu-bot" id="visible2">
 <div className="navbar navbar-expand-sm">
   
- 
   {/* <a href="/Question" >
     <div className="menuitem2" data-toggle="popover-hover4" data-content="Câu hỏi">
       <li  className="fa fa-question-circle"></li>
@@ -45,8 +40,6 @@ return (
   </div>
 </div>
 
-
-  
 );
 }
 

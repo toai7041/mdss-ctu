@@ -63,6 +63,7 @@ function Question() {
 
     return (
         <div className="question col-12">
+<<<<<<< HEAD
             {question?.map((item) => (            
               <><div className="situation col-6 col-md-4 col-lg-2" value={item._id} key={item._id} onClick={()=>handleQuestion(item._id)}>
                   <img src={item.image} />
@@ -71,6 +72,15 @@ function Question() {
                   <p>Điểm TB: {item.averageMark}</p>
               </div>
             </>            
+=======
+            {question?.map(item => (
+            <div className="situation col-6 col-md-4 col-lg-2" key={item._id}>
+                <img src={item.image} />
+                <p><b>Tình huống:</b> {item.name}</p>
+                <p><b>Mô tả:</b> {item.description}</p>
+                <p><b>Điểm TB:</b> {item.averageMark}</p>
+            </div>
+>>>>>>> 482529ec4b9466e394ce19fbcd80fc002a47fc18
             ))}
             {/* POPUP_QUESTION */}
             
