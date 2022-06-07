@@ -50,7 +50,6 @@ body {
 
 /* sidebar */
 .sidebar-menu {
-  z-index: 1000;
   width: 70px;
   background-color: var(--color-bg);
   height: 100%;
@@ -76,22 +75,33 @@ body {
   box-shadow: 0px 0px 3px black;
 }
 
+a .menuitem:hover { 
+  background: white;
+  color:var(--color-bg);
+  box-shadow: none;
+}
+
+.menuitem:hover{
+  transform: scale(0.96);
+}
+
 .sidebar-menu-bot{
   display: none;
   background: var(--color-bg2);
   }
 
-  .menuitem2 {
-    padding: auto;
-    margin: auto 35px;
-    width: 35px;
-    height: 35px;
-    background: var(--color-bg2);
-    font-size: 25px;
-    text-align: center;
-    color: var(--color-bg2);
-    transition: transform 0.3s;
+.menuitem2 {
+  padding: auto;
+  margin: auto 35px;
+  width: 35px;
+  height: 35px;
+  background: var(--color-bg2);
+  font-size: 25px;
+  text-align: center;
+  color: var(--color-bg2);
+  transition: transform 0.3s;
   }
+
 .navbar-toggler {
   padding: 0px;
   line-height: 0.7;
@@ -329,21 +339,6 @@ nav {
   margin-right: 10px;
 }
 
-option{
-  color:#000000;
-}
-
-option:hover{
-  color:#000000;
-}
-
-option:focus{
-  color:#000000;
-}
-option:active{
-  color:#000000;
-}
-
 .submenu {
   transition: transform 0.5s;
   text-decoration: none;
@@ -362,7 +357,7 @@ option:active{
   color: black;
   font-weight: bold;
   margin: 5px;
-  padding: 5px;
+  padding: 10px 5px;
   border-radius: 30px;
 }
 
@@ -389,9 +384,8 @@ a.dropdown-item {
   font-weight: bold;
   padding: 2px;
   position: relative;
-  margin-left: 60%;
+  margin-left: 50%;
 }
-
 /* hết menuu home */
 
 /* Đăng nhập */

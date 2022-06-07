@@ -21,7 +21,7 @@ function Nav() {
     useEffect(() => {
       getAllCate(dispatch)
     },[])
-  console.log(pathname)
+
 return (
 <>
   <nav className="navbar navbar-expand-sm navbar-light bg">
@@ -44,7 +44,8 @@ return (
           </li>
         </div>
         ))}
-            {pathname === "/question" ?(
+       
+            {pathname === "/question" || pathname === "/" ?(
             <div className="all">
             <select name="sort" id="sort" onClick={routeChange}>
              <option selected value={`/question`} >Tất cả</option>

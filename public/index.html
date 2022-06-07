@@ -80,8 +80,9 @@ $(function () {
 
 <script>
   var offset = 150;
-  var onset = 600;
-  var duration = 400;
+  var onset = 650;
+  var duration = 500;
+  var duration2 = 1000;
 
   window.onscroll = function() {myFunction()};
   function myFunction(){
@@ -89,21 +90,10 @@ $(function () {
   $('#visible').fadeOut(duration);
   $('#visible2').fadeOut(duration);}
   else{
-  $('#visible').fadeIn(duration);
-  $('#visible2').fadeIn(duration);
+  $('#visible').fadeIn(duration2);
+  $('#visible2').fadeIn(duration2);
   }
   };
   </script>
-
-<script>
-  $("select").click(function() {
-  var open = $(this).data("isopen");
-  if(open) {
-    window.location.href = $(this).val()
-  }
- 
-  $(this).data("isopen", !open);
-});
-</script>
   
 </html>

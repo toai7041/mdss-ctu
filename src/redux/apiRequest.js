@@ -3,7 +3,7 @@ import apiConfig from '../api/apiConfig'
 import { loginFail, loginStart, loginSuccess, registerFail, registerStart, registerSuccess } from "./authSlice";
 import { deleteUserFail, deleteUserStart, deleteUserSuccess, getUsersAccess, getUsersFail, getUsersStart, updateUserAccess, updateUserFail, updateUserStart } from "./userSlice";
 import { getAllCateAccess, getAllCateFail, getAllCateStart, getAnCateAccess, getAnCateFail, getAnCateStart } from "./cateSlice";
-import { getAllQuestionAccess, getAllQuestionFail, getAllQuestionStart, getAnQuestionAccess, getAnQuestionFail, getAnQuestionStart} from "./questionSlice";
+import { getAllQuestionAccess, getAllQuestionFail, getAllQuestionStart, getAQuestionAccess, getAQuestionFail, getAQuestionStart} from "./questionSlice";
 export const loginUser = async(user, dispatch, navigate) =>{
     dispatch(loginStart());
     try{
@@ -91,18 +91,18 @@ export const getAllQuestion = async(dispatch) => {
     try {
         const res = await axios.get(`${apiConfig.baseUrl}/question/`)
         dispatch(getAllQuestionAccess(res.data))
-        console.log(res.data);
+        // console.log(res.data);
     } catch (error) {
         dispatch(getAllQuestionFail(error.response.data))
     }
 }
 
-export const getAnQuestion = async(dispatch, id) => {
-    dispatch(getAnQuestionStart())
+export const getAQuestion = async(dispatch, id) => {
+    dispatch(getAQuestionStart())
     try {
         const res = await axios.get(`${apiConfig.baseUrl}/question/${id}`)
-        dispatch(getAnQuestionAccess(res.data))
+        dispatch(getAQuestionAccess(res.data))
     } catch (error) {
-        dispatch(getAnQuestionFail())
+        dispatch(getAQuestionFail())
     }
 }

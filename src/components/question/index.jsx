@@ -6,12 +6,10 @@ import { getAllQuestion} from '../../redux/apiRequest';
 function Question() {
 
     const question = useSelector(state => state.question.questions?.allQuestion)
-    // const questionbycate = useSelector(state => state.question.questions?.allQuestion)
     const dispatch = useDispatch()
       useEffect(() => {
         getAllQuestion(dispatch)
       },[dispatch])
-      // console.log(question)
 
     return (
         <div className="question col-12">
