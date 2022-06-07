@@ -32,7 +32,7 @@ function App() {
             <Route path='/Register' element={<Register />} />
             <Route path='/cate/:id' element={<QuestionByCate />} />
             
-            {/* <Route path='/Question' element={<ListQuestion />} /> */}
+            <Route path='/Question' element={<ListQuestion />} />
         </Routes>
         </div>
       </div>

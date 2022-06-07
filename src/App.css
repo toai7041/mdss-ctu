@@ -318,9 +318,6 @@ nav {
   -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4); */
 }
-nav h5{
-  margin-right: 10px;
-}
 
 .navbar{
   display: flex;
@@ -329,7 +326,24 @@ nav h5{
 
 .navbar h5{
   color: var(--color-text-header);
+  margin-right: 10px;
 }
+
+option{
+  color:#000000;
+}
+
+option:hover{
+  color:#000000;
+}
+
+option:focus{
+  color:#000000;
+}
+option:active{
+  color:#000000;
+}
+
 .submenu {
   transition: transform 0.5s;
   text-decoration: none;

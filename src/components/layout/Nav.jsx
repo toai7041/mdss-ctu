@@ -1,16 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCate } from '../../redux/apiRequest';
-import {Link} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
+import { Redirect } from 'react-router-dom';
+import { useNavigate, useLocation } from "react-router-dom";
+
+import ReactDOM from "react-dom";
+import Select from "react-select";
 
 function Nav() {
+  
   const cate = useSelector(state => state.cate.cates?.allCate)
   const dispatch = useDispatch()
-  
+  const {pathname} = useLocation() 
+  let navigate = useNavigate(); 
+  const routeChange = (e) =>{ 
+    let path = e.target.value; 
+    navigate(path);
+  }
     useEffect(() => {
       getAllCate(dispatch)
     },[])
-  // console.log(cate)
+  console.log(pathname)
 return (
 <>
   <nav className="navbar navbar-expand-sm navbar-light bg">
@@ -33,17 +44,25 @@ return (
           </li>
         </div>
         ))}
-
-        <div className="all">
-          <select name="sort" id="sort" >
-            <option value={`/`} >Tất cả</option>
+            {pathname === "/question" ?(
+            <div className="all">
+            <select name="sort" id="sort" onClick={routeChange}>
+             <option selected value={`/question`} >Tất cả</option>
+             {cate?.map(item => (
+             <option value={`/cate/${item._id}`} key={item._id} >{item.name}</option>
+             ))}   
+            </select>
+            </div> ) 
+            : 
+            (<div className="all">
+            <select name="sort" id="sort" onClick={routeChange}>
+            <option value={`/question`} >Tất cả</option>
             {cate?.map(item => (
-              <option value={`/cate/${item._id}`}  key={item._id}>{item.name}</option>
-            ))}
-
-          </select>
-        </div>
-
+            <option selected value={`/cate/${item._id}`} key={item._id} >{item.name}</option>
+            ))}  
+            </select>
+            </div>
+            )}
       </ul>
     </div>
   </nav>
