@@ -32,7 +32,9 @@
   font-weight: bold;
   src: url("https://cdn.glitch.me/605e2a51-d45f-4d87-a285-9410ad350515%2FHKGrotesk-Bold.otf?v=1603136323437") format("opentype");
 }
-
+a {
+  text-decoration: none;
+}
 body {
   font-family: HK Grotesk;
   background-color: var(--color-bg2);
@@ -134,8 +136,6 @@ a .menuitem:hover {
   font-style: italic;
   font-size: 26px;
   text-shadow: 1px 1px 1px #000000;
-  /* box-shadow: 0 0px 5px black; */
-  /* padding: 5px 10px; */
 }
 
 .input-group {
@@ -167,13 +167,67 @@ a .menuitem:hover {
 
 .col-lg-2{
   max-width: 15%;
-
-/* .banner img:hover {
-  box-shadow: none;
-  transform: scale(0.995);
-} */
 }
 /* hết header */
+
+/* User */
+.account{
+  width: 100%;
+  padding: 50px 20px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.user{
+  display:flex;
+  justify-content: center;
+}
+
+a .user-item{
+  text-decoration: none;
+  transition: transform 0.3s;
+  background: var(--color-bg);
+  box-shadow: 0px 2px 2px black;
+  padding: 10px;
+  border-radius: 0px 0px 20px 20px;
+  color: var(--color-text-main);
+  font-size: 20px;
+}
+
+a .user-item:hover { 
+  background: rgba(148, 197, 245, 0.827);
+  color: var(--color-bg);
+  box-shadow: none;
+  color: var(--color-text-main);
+  text-decoration: none;
+}
+
+.user-header{
+  text-align: center;
+  background: var(--color-bg);
+  padding: 5px 30px;
+  border-radius: 20px 20px 0px 0px ;
+  color: var(--color-text-main);
+}
+
+.user-info{
+  transition: transform 0.3s;
+  background: white;
+  box-shadow: 0px 1px 3px black;
+  border-radius: 22px;
+  color: var(--color-text-main);
+}
+
+.user-info p {
+  width: 260px;
+  padding: 10px;
+  margin: 5px 20px;
+  margin-bottom: 0px;
+}
+/* Hết User */
 
 /* tình huống */
 .question {
@@ -577,6 +631,9 @@ form a {
     max-height: 290px;
   }
 
+  .user-info p {
+    width: 230px;
+  }
   .info h5 {
     font-size: 15px;
   }
@@ -608,28 +665,23 @@ form a {
   .wrapper {
     width: 96%;
   }
+
   .sidebar-menu-bot {
+    display: block;
+    position: fixed;
+    margin-bottom: -1px;
+    margin-left: 0px;
+    bottom: 0px;
     align-items: center;
-    display: flex;
     justify-content: center;
     width: 100%;
     height: 50px;
     background-color: var(--color-bg);
-    padding: auto;
-    display: none;
-    margin-left: 0px;
   }
-  
-  .menuitem:hover {
-    background: var(--color-bg2);
-    color: var(--color-bg);
-    transform: scale(0.95);
-    box-shadow: none;
-  }
-  
+
   .menuitem2 {
     padding: auto;
-    margin: auto 35px;
+    margin: auto;
     width: 35px;
     height: 35px;
     background: var(--color-bg);
@@ -655,13 +707,6 @@ form a {
   .bannerlog img {
     max-width: 270px;
     max-height: 270px;
-  }
-
-  .sidebar-menu-bot {
-    display: block;
-    position: fixed;
-    margin-bottom: -2px;
-    bottom: 0px;
   }
 
   .sidebar-menu {

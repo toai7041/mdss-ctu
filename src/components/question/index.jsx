@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllQuestion} from '../../redux/apiRequest';
 
-
 function Question() {
 
     const question = useSelector(state => state.question.questions?.allQuestion)

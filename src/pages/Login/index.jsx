@@ -14,28 +14,7 @@ import { deleteUser, getAllUser } from "../../redux/apiRequest";
 function Login() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    // const error = useSelector(state => state.auth.login?.isError)
-    // const user = useSelector(state => state.auth.login?.user)
-    // const userList = useSelector(state => state.user.users?.allUser)
-
-    // useEffect(() => {
-    //   if(!user){
-    //     navigate("/login")
-    //   }
-    //   else{
-    //     navigate("/")
-    //   }
-    //   if(user?.token){
-    //     getAllUser(user.token, dispatch)
-    //   }
-    // },[])
-
-    // const handleDelete = () => {
-    //     if(user?.token){
-    //         deleteUser(user.token,dispatch, user.id)
-    //     }
-    // }
-
+   
     const formik = useFormik({
       initialValues:{
           email:"",
@@ -52,17 +31,15 @@ function Login() {
               password: values.password
           }
           loginUser(user,dispatch, navigate)
-          // console.log(user)
       }
   })
-  // console.log(formik.values)
  
   return (
     <>
     <div className="account-page">
         <div className="row">
         
-          <div className="form-container col-sm-5" >
+          <div className="form-container col-sm-5">
            
             <div className="title-log"><h5>Đăng nhập tài khoản</h5></div>
 

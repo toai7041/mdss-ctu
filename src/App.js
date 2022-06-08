@@ -1,8 +1,5 @@
 import './App.css';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
-
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Banner from './components/layout/Banner';
@@ -13,6 +10,7 @@ import Login from './pages/Login';
 import ListQuestion from './pages/Question';
 import Register from './pages/Register';
 import Introduce from './pages/Introduce';
+import User from './pages/User';
 import QuestionByCate from './components/question/QuestionByCate';
 function App() {
   return (
@@ -32,6 +30,7 @@ function App() {
             <Route path='/Register' element={<Register />} />
             <Route path='/cate/:id' element={<QuestionByCate />} />
             <Route path='/Question' element={<ListQuestion />} />
+            <Route path='/User' element={<User />} />
         </Routes>
         </div>
       </div>
@@ -39,9 +38,7 @@ function App() {
     <Footer/>
     <Sidebar_bot/>
     </Router>
-    
     </div>
-   
     </>
   );
 }

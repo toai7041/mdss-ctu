@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCate } from '../../redux/apiRequest';
-import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
-import { Redirect } from 'react-router-dom';
+import { Link} from "react-router-dom";
 import { useNavigate, useLocation } from "react-router-dom";
-
-import ReactDOM from "react-dom";
-import Select from "react-select";
 
 function Nav() {
   
