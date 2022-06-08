@@ -6,12 +6,14 @@ import { getDiagnose, getQuestion, getSubDiagnose, getTreatment } from './getdat
 
 
 function Question() {
-    const [isOpen, setIsOpen] = useState(false)    
+    const [isOpen, setIsOpen] = useState(false)
+    var name="";    
     const [questiondisplay, setQuestiondiaplay] = useState({
       "_id": "",
       "diagnose": [],
       "image": ""
     })
+    const [hidediagnose, setHidediagnose] = useState(true)
     const [diagnosedisplay, setDiagnosedisplay] = useState({})
     const question = useSelector(state => state.question.questions?.allQuestion)
     const [anwserchoice, setAnwserchoice] =useState([])
@@ -26,17 +28,21 @@ function Question() {
       const handleQuestion = (id) => {
         setIsOpen(true);
         getQuestion(id).then(res=> {
-          setQuestiondiaplay(res)})
+        setQuestiondiaplay(res)})
         setAnwserchoice([...anwserchoice, id]);
+        
       }
-
       //
       
       const handleDiagnose = (id) => {
         getDiagnose(id).then(res => setDiagnosedisplay(res))
         setAnwserchoice([...anwserchoice, id]);
+        setHidediagnose(false)
+        
+        
       }
       const close = () =>{
+        setDiagnosedisplay({})
         setAnwserchoice([])
         setIsOpen(false)
         setQuestiondiaplay({
@@ -44,8 +50,11 @@ function Question() {
           "diagnose": [],
           "image": ""
         })
+        setHidediagnose(true)
+        
 
       }
+      
       //
       const handleSubdiagnose = (id) => {
       getSubDiagnose(id).then(res=> setSubdiagnose(res))        
@@ -57,13 +66,17 @@ function Question() {
       setAnwserchoice([])
       setDiagnosedisplay({})
       setSubdiagnose({})
+      setHidediagnose(false)
       }
-      const redo = <><div>LOI</div> <button onClick={reDo}>Chon lai</button></>
+      
+    
+
+      
+      const redo = <><div>Lỗi</div> <button onClick={reDo}>Chọn lại</button></>
       
 
     return (
         <div className="question col-12">
-<<<<<<< HEAD
             {question?.map((item) => (            
               <><div className="situation col-6 col-md-4 col-lg-2" value={item._id} key={item._id} onClick={()=>handleQuestion(item._id)}>
                   <img src={item.image} />
@@ -72,61 +85,43 @@ function Question() {
                   <p>Điểm TB: {item.averageMark}</p>
               </div>
             </>            
-=======
-            {question?.map(item => (
-            <div className="situation col-6 col-md-4 col-lg-2" key={item._id}>
-                <img src={item.image} />
-                <p><b>Tình huống:</b> {item.name}</p>
-                <p><b>Mô tả:</b> {item.description}</p>
-                <p><b>Điểm TB:</b> {item.averageMark}</p>
-            </div>
->>>>>>> 482529ec4b9466e394ce19fbcd80fc002a47fc18
             ))}
             {/* POPUP_QUESTION */}
             
             <Popup open={isOpen} onClose={close}> 
                 <div key="POPUP">
                   {/*display question*/}
-                  <div key="tinhuong" className='QUESTION'> <div className='HIGHLIGHT'>Tình huống</div> {questiondisplay?.description} <br></br><br></br>
+                  <div key="tinhuong" className='QUESTION'> 
+                  <div className='HIGHLIGHT'>Tình huống</div> {questiondisplay?.description} <br></br><br></br>
                   <img src={questiondisplay?.image} className="center"/>                  
                   </div>
-                  {/* phim ao test CSS */}
-                  <><button className='choice-btn'>CHUAN DOAN</button><button className='choice-btn'>CHUAN DOAN</button></>
                   
-                  {questiondisplay?.diagnose?.map(id=>
-                  <button onclick={()=>handleDiagnose(id)}>{id}</button>)}                  
+                  
+                  {questiondisplay.diagnose?.map((id)=>(hidediagnose?                                                             
+                  <button className="choice-btn" onClick={()=>handleDiagnose(id._id)}>{id.name}</button>:null))}                  
                   {!questiondisplay.diagnose.length?redo:null}            
                   
-                  {/*test css chuan doan so bo 1*/}
-                  <div className='QUESTION'>
-                  <div className='HIGHLIGHT'>Chuẩn đoán sơ bộ 1</div>
-                  <div>Nội dung chuẩn chuẩn đoán</div>
-                  </div>
-                  <div className='container-btn'><button className='choice-btn'>Chuẩn đoán 1</button><button className='choice-btn'>chuẩn đoán 2</button></div>
+                  
                   
                   {/*display diagnose */}
-                  {!diagnosedisplay&&
-                  (<div>
-                  <div>Chuẩn đoán sơ bộ</div>
-                  <div>{diagnosedisplay.description}</div>
-                  {diagnosedisplay?.subdiagnose?.map(subdiag=><button onClick={()=>handleSubdiagnose(subdiag)}>{subdiag}</button>)}
-                  </div>)}
-
-                  {/*test css chuan doan so bo 2*/}
+                  {JSON.stringify(diagnosedisplay)!="{}"?
                   <div className='QUESTION'>
-                  <div className='HIGHLIGHT'>Chuẩn đoán sơ bộ 2</div>
-                  <div>Nội dung chuẩn chuẩn đoán</div>
-                  </div>
-                  <div><button className='choice-btn'>ĐIỀU TRỊ</button><button className='choice-btn'>Điều Trị 2</button></div>
+                  <div className='HIGHLIGHT'>Chẩn Đoán sơ bộ </div>{diagnosedisplay.description}                  
+                  </div>:null} 
+                  {diagnosedisplay.subDiagnose?.map(subdiag=>
+                  <button onClick={()=>handleSubdiagnose(subdiag)}>{subdiag}</button>)}
+                  
+
+                  
 
                   {/*display subdiag */}
-                  {!subdiagnose&&
-                  (<>
-                  <div>Chuẩn đoán sơ bộ</div>
+                  {JSON.stringify(subdiagnose)!="{}"?
+                  <>
+                  <div>Chẩn Đoán sơ bộ</div>
                   <div>{subdiagnose.description}
-                  <img/></div>
+                  <img/></div>                  
+                  </>:null}
                   {subdiagnose?.treatment?.map(treat=><button onClick={()=>handleSubdiagnose(treat)}>{treat}</button>)}
-                  </>)}
                 </div>
               </Popup>
     </div>
