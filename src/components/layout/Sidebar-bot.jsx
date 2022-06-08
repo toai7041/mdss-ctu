@@ -22,14 +22,15 @@ return (
       <li  className="fa fa-home"></li>
     </div>
   </a>
-  {/* <a href="/Introduce" >
-    <div className="menuitem2" data-toggle="popover-hover6" data-content="Giới thiệu">
-      <li  className="fa fa-info-circle"></li>
-    </div>
-  </a> */}
-  <a href="/#">
+  
+  <a href="/User">
     <div className="menuitem2" data-toggle="popover-hover2" data-content="Tài khoản">
       <li  className="fa fa-user"></li>
+    </div>
+  </a>
+  <a href="/Introduce" >
+    <div className="menuitem2" data-toggle="popover-hover6" data-content="Giới thiệu">
+      <li  className="fa fa-info-circle"></li>
     </div>
   </a>
   {/* <a href="/#">

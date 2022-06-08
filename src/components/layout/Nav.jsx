@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCate } from '../../redux/apiRequest';
-import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
-import { Redirect } from 'react-router-dom';
+import { Link} from "react-router-dom";
 import { useNavigate, useLocation } from "react-router-dom";
-
-import ReactDOM from "react-dom";
-import Select from "react-select";
 
 function Nav() {
   
@@ -21,7 +17,7 @@ function Nav() {
     useEffect(() => {
       getAllCate(dispatch)
     },[])
-  console.log(pathname)
+
 return (
 <>
   <nav className="navbar navbar-expand-sm navbar-light bg">
@@ -44,7 +40,8 @@ return (
           </li>
         </div>
         ))}
-            {pathname === "/question" ?(
+       
+            {pathname === "/question" || pathname === "/" ?(
             <div className="all">
             <select name="sort" id="sort" onClick={routeChange}>
              <option selected value={`/question`} >Tất cả</option>

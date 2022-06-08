@@ -13,8 +13,6 @@ function QuestionByCate() {
       useEffect(() => {
         getAllQuestion(dispatch)
       },[dispatch])
-    //   console.log(questionByCate.id)
-    //   console.log(question)
 
     return (
          <>

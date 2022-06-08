@@ -33,15 +33,15 @@ export const questionSlice = createSlice({
             state.msg = action.payload
         },
         
-        getAnQuestionStart: (state) => {
+        getAQuestionStart: (state) => {
             state.question.pending = true
         },
-        getAnQuestionAccess: (state, action) => {
+        getAQuestionAccess: (state, action) => {
             state.question.question = action.payload
             state.question.pending = false
             state.question.error = false
         },
-        getAnQuestionFail: (state) => {
+        getAQuestionFail: (state) => {
             state.question.error = true
         }
 
@@ -54,9 +54,9 @@ export const {
     getAllQuestionFail,
     getAllQuestionStart,
 
-    getAnQuestionAccess,
-    getAnQuestionFail,
-    getAnQuestionStart
+    getAQuestionAccess,
+    getAQuestionFail,
+    getAQuestionStart
 } = questionSlice.actions
 
 export default questionSlice.reducer

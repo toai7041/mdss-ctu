@@ -4,7 +4,6 @@ import { getAllQuestion, getAnQuestion} from '../../redux/apiRequest';
 import Popup from './Popup';
 import { getDiagnose, getQuestion, getSubDiagnose, getTreatment } from './getdata';
 
-
 function Question() {
     const [isOpen, setIsOpen] = useState(false)
     var name="";    
@@ -66,7 +65,7 @@ function Question() {
       setAnwserchoice([])
       setDiagnosedisplay({})
       setSubdiagnose({})
-      setHidediagnose(false)
+      setHidediagnose(true)
       }
       
     
