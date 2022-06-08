@@ -31,7 +31,6 @@ function App() {
             <Route path='/Introduce' element={<Introduce />} />
             <Route path='/Register' element={<Register />} />
             <Route path='/cate/:id' element={<QuestionByCate />} />
-            
             <Route path='/Question' element={<ListQuestion />} />
         </Routes>
         </div>
