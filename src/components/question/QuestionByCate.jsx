@@ -104,11 +104,12 @@ function QuestionByCate() {
                   <div className='HIGHLIGHT'>Tình huống</div> {questiondisplay?.description} <br></br><br></br>
                   <img src={questiondisplay?.image} className="center"/>                  
                   </div>
-                  
+
+                  <div className="choice-diagnose">
                   {questiondisplay.diagnose?.map((id)=>(hidediagnose?                                                             
                   <button className="choice-btn" onClick={()=>handleDiagnose(id._id)}>{id.name}</button>:null))}                  
                   {!questiondisplay.diagnose.length?redo:null}            
-                  
+                  </div>
                   
                   {/*display diagnose */}
                   {JSON.stringify(diagnosedisplay)!="{}"?
@@ -130,36 +131,7 @@ function QuestionByCate() {
                 </div>
               </Popup>
         </div>
-        <Popup open={isOpen} onClose={close}> 
-                <div key="POPUP">
-                  {/*display question*/}
-                  <div key="tinhuong" className='QUESTION'> 
-                  <div className='HIGHLIGHT'>Tình huống</div> {questiondisplay?.description} <br></br><br></br>
-                  <img src={questiondisplay?.image} className="center"/>                  
-                  </div>
-                  
-                  
-                  {questiondisplay.diagnose?.map((id)=>(hidediagnose?                                                             
-                  <button className="choice-btn" onClick={()=>handleDiagnose(id._id)}>{id.name}</button>:null))}
-                     
-                  {/*display diagnose */}
-                  {JSON.stringify(diagnosedisplay)!="{}"?
-                  <div className='QUESTION'>
-                  <div className='HIGHLIGHT'>Chẩn Đoán sơ bộ </div>{diagnosedisplay.description}                  
-                  </div>:null} 
-                  {diagnosedisplay.subDiagnose?.map(subdiag=>hidesubdiagnose?
-                  <button onClick={()=>handleSubdiagnose(subdiag)}>{subdiag}</button>:null)}
-
-                  {/*display subdiag */}
-                  {JSON.stringify(subdiagnose)!="{}"?
-                  <>
-                  <div>Chẩn Đoán sơ bộ</div>
-                  <div>{subdiagnose.description}
-                  <img/></div>                  
-                  </>:null}
-                  {subdiagnose?.treatment?.map(treat=><button onClick={()=>handleSubdiagnose(treat)}>{treat}</button>)}
-                </div>
-              </Popup>
+       
         </>
     );
 }

@@ -155,7 +155,7 @@ a .menuitem:hover {
 
 .input-group {
   font-size: 16px;
-  width: 250px;
+  width: 220px;
   margin: auto;
   z-index: 0;
 }
@@ -459,7 +459,7 @@ a.dropdown-item {
   font-weight: bold;
   padding: 2px;
   position: relative;
-  margin-left: 50%;
+  margin-left: 20px;
 }
 /* hết menuu home */
 
@@ -686,6 +686,14 @@ form a {
     width: 100%;
   }
  
+  .navbar h5{
+    font-size: 17px;
+  }
+
+  .navbar {
+    font-size: 15px;
+  }
+  
   .header-user{
     text-align: center;
     justify-content: center;
@@ -783,7 +791,7 @@ form a {
   }
 
   .form-control {
-    height: calc(1em + 0.5rem + 2px);
+    height: calc(1em + 0.6rem + 2px);
     font-size: 16px;
   }
 
@@ -792,7 +800,7 @@ form a {
   }
 
   .input-group .btn {
-    height: calc(1em + 0.8rem + 2px);
+    height: calc(1em + 1rem + 2px);
     font-size: 10px;
     padding: auto;
   }

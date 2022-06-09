@@ -91,29 +91,34 @@ function Question() {
                   <div key="tinhuong" className='QUESTION'> 
                   <div className='HIGHLIGHT'>Tình huống</div> {questiondisplay?.description} <br></br><br></br>
                   <img src={questiondisplay?.image} className="center"/>                  
-                  </div>                  
+                  </div>        
+
                   {/** choice diagnose button */}
+                  <div className="choice-diagnose">
                   {questiondisplay.diagnose?.map((id,index)=>(hidediagnose?                                                             
                   <button className="choice-btn" key={index} onClick={()=>handleDiagnose(id._id)}>{id.name}</button>:null))} 
-                               
+                  </div>          
                   {/*display diagnose */}
                   {JSON.stringify(diagnosedisplay)!="{}"?
                   <div className='QUESTION'>
                   <div className='HIGHLIGHT'>Chẩn Đoán sơ bộ </div>{diagnosedisplay.description}                
                   </div>:null}     
 
-                  {/**choice subdiagnose button */}               
+                  {/**choice subdiagnose button */}
+
                   {diagnosedisplay.subDiagnose?.map((subdiag,index)=>hidesubdiagnose?
                   <button key={index}onClick={()=>handleSubdiagnose(subdiag)}>{subdiag}</button>:null)}
 
                   {/*display subdiag */}
                   {JSON.stringify(subdiagnose)!="{}"?
                   <>
-                  <div>Chẩn Đoán sơ bộ</div>
+                  <div >Chẩn Đoán sơ bộ</div>
                   <div>{subdiagnose.description}
                   <img/></div>                  
                   </>:null}
-                  {subdiagnose.treatment?redo:subdiagnose.treatment?.map((treat,index)=><button key={index} onClick={()=>handleSubdiagnose(treat)}>{treat}</button>)}
+                  {subdiagnose.treatment?redo:subdiagnose.treatment?.map(
+                    (treat,index)=><button key={index} 
+                    onClick={()=>handleSubdiagnose(treat)}>{treat}</button>)}
                 </div>
               </Popup>
     </div>
