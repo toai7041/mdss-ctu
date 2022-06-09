@@ -7,7 +7,7 @@ export default function Popup({ open, children, onClose, id }) {
     <div key="OVERLAY" className="OVERLAY">
       <div key="POPUP" className="POPUP_STYLE">
         <button className="close-btn" onClick={onClose}>
-          CLOSE
+          X
         </button>
         {children}
       </div>

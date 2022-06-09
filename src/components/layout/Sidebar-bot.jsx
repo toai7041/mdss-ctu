@@ -50,7 +50,7 @@ return (
     to="/Introduce"
     exact={true} 
     data-toggle="popover-hover4">
-      <i className="fas fa-info-circle"></i>
+      <i className="fas fa-info"></i>
   </NavLink>
   </li>
 
