@@ -50,8 +50,6 @@ function Question() {
           "image": ""
         })
         setHidediagnose(true)
-        
-
       }
       
       //
@@ -68,22 +66,18 @@ function Question() {
       setHidediagnose(true)
       }
       
-    
-
-      
       const redo = <><div>Lỗi</div> <button onClick={reDo}>Chọn lại</button></>
       
-
     return (
         <div className="question col-12">
             {question?.map((item) => (            
-              <><div className="situation col-6 col-md-4 col-lg-2" value={item._id} key={item._id} onClick={()=>handleQuestion(item._id)}>
+              <div className="situation col-6 col-md-4 col-lg-2" value={item._id} key={item._id} onClick={()=>handleQuestion(item._id)}>
                   <img src={item.image} />
                   <p>Tình huống: {item.name}</p>
                   <p>Mô tả: {item.description}</p>
                   <p>Điểm TB: {item.averageMark}</p>
               </div>
-            </>            
+                       
             ))}
             {/* POPUP_QUESTION */}
             
@@ -95,11 +89,9 @@ function Question() {
                   <img src={questiondisplay?.image} className="center"/>                  
                   </div>
                   
-                  
                   {questiondisplay.diagnose?.map((id)=>(hidediagnose?                                                             
                   <button className="choice-btn" onClick={()=>handleDiagnose(id._id)}>{id.name}</button>:null))}                  
                   {!questiondisplay.diagnose.length?redo:null}            
-                  
                   
                   
                   {/*display diagnose */}
@@ -109,9 +101,7 @@ function Question() {
                   </div>:null} 
                   {diagnosedisplay.subDiagnose?.map(subdiag=>
                   <button onClick={()=>handleSubdiagnose(subdiag)}>{subdiag}</button>)}
-                  
-
-                  
+              
 
                   {/*display subdiag */}
                   {JSON.stringify(subdiagnose)!="{}"?

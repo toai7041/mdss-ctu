@@ -43,7 +43,7 @@ return (
        
             {pathname === "/question" || pathname === "/" ?(
             <div className="all">
-            <select name="sort" id="sort" onClick={routeChange}>
+            <select name="sort" id="sort" onClick={routeChange} defaultValue={"all"}>
              <option selected value={`/question`} >Tất cả</option>
              {cate?.map(item => (
              <option value={`/cate/${item._id}`} key={item._id} >{item.name}</option>

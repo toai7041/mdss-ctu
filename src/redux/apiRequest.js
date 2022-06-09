@@ -1,13 +1,20 @@
 import axios from "axios";
 import apiConfig from "../api/apiConfig";
-import {
-  loginFail,
-  loginStart,
-  loginSuccess,
-  registerFail,
-  registerStart,
-  registerSuccess,
-} from "./authSlice";
+import { 
+  getAllUserAccess, 
+  getAllUserFail, 
+  getAllUserStart, 
+  loginFail, 
+  loginStart, 
+  loginSuccess, 
+  logoutAccess, 
+  logoutFail, 
+  logoutStart, 
+  registerAccess, 
+  registerFail, 
+  registerStart 
+} from "./authSlice"
+
 import {
   deleteUserFail,
   deleteUserStart,
@@ -19,6 +26,7 @@ import {
   updateUserFail,
   updateUserStart,
 } from "./userSlice";
+
 import {
   getAllCateAccess,
   getAllCateFail,
@@ -27,6 +35,7 @@ import {
   getAnCateFail,
   getAnCateStart,
 } from "./cateSlice";
+
 import {
   getAllQuestionAccess,
   getAllQuestionFail,
@@ -35,40 +44,76 @@ import {
   getAQuestionFail,
   getAQuestionStart,
 } from "./questionSlice";
+
 export const loginUser = async (user, dispatch, navigate) => {
   dispatch(loginStart());
   try {
     const res = await axios.post(`${apiConfig.baseUrl}/auth/login`, user);
     dispatch(loginSuccess(res.data));
+    localStorage.setItem("userInfo",JSON.stringify(res.data))
     navigate("/");
   } catch (error) {
     dispatch(loginFail(error.response.data));
   }
 };
-export const register = async (user, dispatch, navigate) => {
-  dispatch(registerStart());
-  try {
-    const res = await axios.post(`${apiConfig.baseUrl}/auth/register`, user);
-    dispatch(registerSuccess(res.data));
-    navigate("/");
-  } catch (error) {
-    dispatch(registerFail(error.response.data));
-  }
-};
 
-export const getAllUser = async (accessToken, dispatch) => {
-  dispatch(getUsersStart());
+export const registerRequest = async(dispatch, token, user) => {
+  dispatch(registerStart())
   try {
-    const res = await axios.get(`${apiConfig.baseUrl}/auth`, {
-      headers: {
-        token: `Bearer ${accessToken}`,
-      },
-    });
-    dispatch(getUsersAccess(res.data));
+      await axios.post(`${apiConfig.baseUrl}/auth/register`, user , {
+          headers: {
+              token: `Bearer ${token}`
+          }
+      })
+      dispatch(registerAccess())
   } catch (error) {
-    dispatch(getUsersFail(error.response.data));
+      dispatch(registerFail(error.response.data))
   }
-};
+}
+
+export const logoutRequest = async(dispatch, token, userId, navigate) => {
+  dispatch(logoutStart())
+  try {
+      await axios.post(`${apiConfig.baseUrl}/auth/logout`, userId, {
+          headers: {
+              token: `Bearer ${token}`
+          }
+      })
+      dispatch(logoutAccess())
+      navigate("/login")
+  } catch (error) {
+      dispatch(logoutFail())
+  }
+}
+
+export const getUser = async(dispatch, token) => {
+  dispatch(getUsersStart())
+  try {
+      const res = await axios.get(`${apiConfig.baseUrl}/auth` , {
+          headers: {
+              token: `Bearer ${token}`
+          }
+      })
+      dispatch(getUsersAccess(res.data))
+  } catch (error) {
+      dispatch(getUsersFail())
+  }
+}
+
+export const getAllUser = async(dispatch, token) => {
+  dispatch(getAllUserStart())
+  try {
+      const res = await axios.get(`${apiConfig.baseUrl}/auth` , {
+          headers: {
+              token: `Bearer ${token}`
+          }
+      })
+      dispatch(getAllUserAccess(res.data))
+  } catch (error) {
+      dispatch(getAllUserFail())
+  }
+}
+
 
 export const deleteUser = async (accessToken, dispatch, id) => {
   dispatch(deleteUserStart());

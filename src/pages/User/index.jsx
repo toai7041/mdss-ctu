@@ -2,36 +2,22 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import { deleteUser, getAllUser } from "../../redux/apiRequest";
 import { loginUser } from '../../redux/apiRequest';
+import { logoutRequest} from '../../redux/apiRequest';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function User() {
-
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const error = useSelector(state => state.auth.login?.isError)
     const user = useSelector(state => state.auth.login?.user)
+    const error = useSelector(state => state.auth.login?.isError)
     const userList = useSelector(state => state.user.users?.allUser)
 
-    // useEffect(() => {
-    //   if(!user){
-    //     navigate("/login")
-    //   }
-    //   else{
-    //     navigate("/User")
-    //   }
-
-    //   if(user?.token){
-    //     getAllUser(user.token, dispatch)
-    //   }
-    // },[])
-
-    // const handleDelete = () => {
-    //     if(user?.token){
-    //         deleteUser(user.token,dispatch, user.id)
-    //     }
-    // }
-
+    const handleLogout = () => {
+        if(user.token){
+          logoutRequest(dispatch,user.token, user._id, navigate)
+        }
+      }
     return (
     <>
     <div className="account">
@@ -42,7 +28,10 @@ function User() {
                 <p><b>Email: </b></p>
                 <p><b>Số câu đã làm: </b></p>
                 <p><b>Điểm trung bình: </b></p>
-                <a href="/Login" ><div className="user-item d-flex"><li className="fa fa-sign-out"> Đăng xuất</li></div></a>
+                <Link className="user-item d-flex" to="/Login" onClick={handleLogout}>
+                <li className="fa fa-sign-out">
+                Đăng xuất</li>
+              </Link>
             </div>
         
         </div>

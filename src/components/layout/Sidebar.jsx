@@ -1,6 +1,19 @@
 import React from 'react';
+import {useEffect} from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 function Sidebar() {
+
+  const navigate = useNavigate()
+  const user = useSelector(state => state.auth.login?.user)
+
+  useEffect(() => {
+    if(!user){
+      navigate("/login")
+    }
+  },[])
+  
   
 return (
   
@@ -33,11 +46,11 @@ return (
       <li  className="fa fa-info-circle"></li>
     </div>
   </a>
-  <a href="/login">
+  {/* <a href="/login">
     <div className="menuitem" data-toggle="popover-hover5" data-content="Đăng xuất">
       <li  className="fa fa-sign-out"></li>
     </div>
-  </a>
+  </a> */}
 
 </div>
 

@@ -126,7 +126,14 @@ a .menuitem:hover {
   z-index: 2;
   background: var(--color-bg2);
 }
-
+.header-user{
+  margin: auto;
+  margin-left: 30px;
+  font-size: 22px;
+}
+.header-user span{
+ color: teal;
+}
 .info h5 {
   text-align: center;
   margin: 10px 30px;
@@ -154,7 +161,7 @@ a .menuitem:hover {
 }
 
 .banner {
-  margin-top: 30px;
+  margin-top: 35px;
 }
 
 .banner img {
@@ -186,18 +193,18 @@ a .menuitem:hover {
   justify-content: center;
 }
 
-a .user-item{
+.user-item{
   text-decoration: none;
   transition: transform 0.3s;
   background: var(--color-bg);
   box-shadow: 0px 2px 2px black;
   padding: 10px;
   border-radius: 0px 0px 20px 20px;
-  color: var(--color-text-main);
+  color: white;
   font-size: 20px;
 }
 
-a .user-item:hover { 
+.user-item:hover { 
   background: rgba(148, 197, 245, 0.827);
   color: var(--color-bg);
   box-shadow: none;
@@ -210,7 +217,7 @@ a .user-item:hover {
   background: var(--color-bg);
   padding: 5px 30px;
   border-radius: 20px 20px 0px 0px ;
-  color: var(--color-text-main);
+  color: white;
 }
 
 .user-info{
@@ -614,6 +621,11 @@ form a {
     width: 50px;
   }
 
+  .header-user{
+    font-size: 16px;
+    margin-left: 30px;
+  }
+
   .menuitem {
     margin: 30px auto;
     width: 35px;
@@ -662,6 +674,12 @@ form a {
     width: 100%;
   }
  
+  .header-user{
+    text-align: center;
+    font-size: 16px;
+    margin: 0px;
+  }
+
   .wrapper {
     width: 96%;
   }
@@ -669,7 +687,7 @@ form a {
   .sidebar-menu-bot {
     display: block;
     position: fixed;
-    margin-bottom: -1px;
+    margin-bottom: -2px;
     margin-left: 0px;
     bottom: 0px;
     align-items: center;
