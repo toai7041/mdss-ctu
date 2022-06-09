@@ -51,57 +51,71 @@ body {
 }
 
 /* sidebar */
+
 .sidebar-menu {
   width: 70px;
   background-color: var(--color-bg);
   height: 100%;
-  padding: auto;
   margin-right: 10px;
-  transition: transform 2s;
+  transition: transform 1s;
   display: block;
   position: fixed;
   margin-left: 0px;
   left: 0px;
-}
-.menuitem {
-  padding: auto;
-  margin: 30px auto;
-  width: 45px;
-  height: 45px;
-  background: var(--color-bg);
-  border-radius: 10px;
-  font-size: 32px;
-  text-align: center;
-  color: white;
-  transition: transform 0.3s;
-  box-shadow: 0px 0px 3px black;
+  padding-top: 20px;
 }
 
-a .menuitem:hover { 
+.sidebar-menu .active{
+  background: white;
+  color: var(--color-bg);
+}
+
+.sidebar-menu-bot .active{
+  background: white;
+  color: var(--color-bg);
+}
+
+.menu-aside {
+  flex-wrap: wrap;
+  display: flex;
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.menuitem .fas{
+  width: 45px;
+}
+
+.menu-item{
+  margin: 15px auto;
+}
+
+.menuitem {
+  padding: 5px;
+  font-size: 28px;
+  background: var(--color-bg);
+  color: white;
+  font-weight: bold;
+  border-radius: 0.7rem;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-shadow: 0px 0px 3px black;
+  transition: transform 0.3s;
+}
+
+.menuitem:hover { 
   background: white;
   color: var(--color-bg);
   box-shadow: none;
-}
-
-.menuitem:hover{
   transform: scale(0.96);
 }
 
 .sidebar-menu-bot{
   display: none;
   margin-left: 50%;
-  }
-
-.menuitem2 {
-  padding: auto;
-  margin: auto 35px;
-  width: 35px;
-  height: 35px;
-  background: var(--color-bg2);
-  font-size: 25px;
-  text-align: center;
-  color: var(--color-bg2);
-  transition: transform 0.3s;
   }
 
 .navbar-toggler {
@@ -133,10 +147,11 @@ a .menuitem:hover {
 } 
 
 .header-user{
+  font-family: "Helvetica Neue",Helvetica,Arial;
   margin:auto;
   width: 100px;
   margin-right: 5px;
-  font-size: 22px;
+  font-size: 18px;
 }
 .header-user span{
  color: teal;
@@ -638,11 +653,8 @@ form a {
     margin-left: 30px;
   }
 
-  .menuitem {
-    margin: 30px auto;
-    width: 35px;
-    height: 35px;
-    font-size: 25px;
+  .menuitem .fas{
+    width: 30px;
   }
 
   .bannerlog img {
@@ -716,37 +728,53 @@ form a {
 
   .sidebar-menu-bot {
     display: block;
-    position: fixed;
-    margin-bottom: -2px;
     margin-left: 0px;
     bottom: 0px;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 50px;
+    position: fixed;
     background-color: var(--color-bg);
+    transition: transform 1s;
+    height: 50px;
+    width: 100%;
+  }
+  
+  .menu-aside2 {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    align-items: center;
+    justify-content:center;
+    width: 100%;
+    padding: 0px;
+    padding-top: 5px;
   }
 
   .menuitem2 {
-    padding: auto;
-    margin: auto;
-    width: 35px;
-    height: 35px;
+    margin: 10px;
+    padding: 5px;
     background: var(--color-bg);
-    border-radius: 10px;
-    font-size: 25px;
-    text-align: center;
     color: white;
-    transition: transform 0.3s;
+    font-weight: bold;
+    border-radius: 10px;
     box-shadow: 0px 0px 3px black;
+    transition: transform 0.3s;
   }
   
-  .menuitem2:hover {
-    background: var(--color-bg2);
+  .menuitem2:hover { 
+    background: white;
     color: var(--color-bg);
-    transform: scale(0.95);
     box-shadow: none;
+    transform: scale(0.96);
   }
+  .menuitem2 .fas{
+    width: 30px;
+    height: 35px;
+    font-size: 20px;
+  }
+
+  .sidebar-menu {
+    display: none;
+  }
+
   .header {
     margin-left: 0px;
     padding-left: 0px;
@@ -757,9 +785,7 @@ form a {
     max-height: 270px;
   }
 
-  .sidebar-menu {
-    display: none;
-  }
+  
   .form-container {
     max-width: 270px;
     max-height: 270px;
