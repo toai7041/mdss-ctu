@@ -9,15 +9,14 @@ import { Link, useNavigate } from 'react-router-dom';
 function User() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const user = useSelector(state => state.auth.login?.user)
-    const error = useSelector(state => state.auth.login?.isError)
-    const userList = useSelector(state => state.user.users?.allUser)
+    const {userInfo} = useSelector(state => state.auth)
 
     const handleLogout = () => {
-        if(user.token){
-          logOut(dispatch,user.token, user._id, navigate)
-        }
+      if(userInfo.token){
+        const {token, _id:id} = userInfo
+        dispatch(logOut({token, id}))
       }
+    }
     return (
     <>
     <div className="account">
