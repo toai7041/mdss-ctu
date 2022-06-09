@@ -1,31 +1,31 @@
 import axios from "axios";
 import apiConfig from "../api/apiConfig";
 import { 
-  getAllUserAccess, 
-  getAllUserFail, 
-  getAllUserStart, 
-  loginFail, 
-  loginStart, 
-  loginSuccess, 
-  logoutAccess, 
-  logoutFail, 
-  logoutStart, 
-  registerAccess, 
-  registerFail, 
-  registerStart 
+//   getAllUserAccess, 
+//   getAllUserFail, 
+//   getAllUserStart, 
+//   loginFail, 
+//   loginStart, 
+//   loginSuccess, 
+//   logoutAccess, 
+//   logoutFail, 
+//   logoutStart, 
+  // registerAccess, 
+  // registerFail, 
+  // registerStart 
 } from "./authSlice"
 
-import {
-  deleteUserFail,
-  deleteUserStart,
-  deleteUserSuccess,
-  getUsersAccess,
-  getUsersFail,
-  getUsersStart,
-  updateUserAccess,
-  updateUserFail,
-  updateUserStart,
-} from "./userSlice";
+// import {
+//   deleteUserFail,
+//   deleteUserStart,
+//   deleteUserSuccess,
+//   getUsersAccess,
+//   getUsersFail,
+//   getUsersStart,
+//   updateUserAccess,
+//   updateUserFail,
+//   updateUserStart,
+// } from "./userSlice";
 
 import {
   getAllCateAccess,
@@ -45,107 +45,108 @@ import {
   getAQuestionStart,
 } from "./questionSlice";
 
-export const loginUser = async (user, dispatch, navigate) => {
-  dispatch(loginStart());
-  try {
-    const res = await axios.post(`${apiConfig.baseUrl}/auth/login`, user);
-    dispatch(loginSuccess(res.data));
-    localStorage.setItem("userInfo",JSON.stringify(res.data))
-    navigate("/");
-  } catch (error) {
-    dispatch(loginFail(error.response.data));
-  }
-};
+// export const loginUser = async (user, dispatch, navigate) => {
+//   dispatch(loginStart());
+//   try {
+//     const res = await axios.post(`${apiConfig.baseUrl}/auth/login`, user);
+//     dispatch(loginSuccess(res.data));
+//     localStorage.setItem("userInfo",JSON.stringify(res.data))
+//     navigate("/");
+//   } catch (error) {
+//     dispatch(loginFail(error.response.data));
+//   }
+// };
 
-export const registerRequest = async(dispatch, token, user) => {
-  dispatch(registerStart())
-  try {
-      await axios.post(`${apiConfig.baseUrl}/auth/register`, user , {
-          headers: {
-              token: `Bearer ${token}`
-          }
-      })
-      dispatch(registerAccess())
-  } catch (error) {
-      dispatch(registerFail(error.response.data))
-  }
-}
+// export const registerRequest = async(dispatch, token, user) => {
+//   dispatch(registerStart())
+//   try {
+//       await axios.post(`${apiConfig.baseUrl}/auth/register`, user , {
+//           headers: {
+//               token: `Bearer ${token}`
+//           }
+//       })
+//       dispatch(registerAccess())
+//   } catch (error) {
+//       dispatch(registerFail(error.response.data))
+//   }
+// }
 
-export const logoutRequest = async(dispatch, token, userId, navigate) => {
-  dispatch(logoutStart())
-  try {
-      await axios.post(`${apiConfig.baseUrl}/auth/logout`, userId, {
-          headers: {
-              token: `Bearer ${token}`
-          }
-      })
-      dispatch(logoutAccess())
-      navigate("/login")
-  } catch (error) {
-      dispatch(logoutFail())
-  }
-}
+// export const logoutRequest = async(dispatch, token, userId, navigate) => {
+//   dispatch(logoutStart())
+//   try {
+//       await axios.post(`${apiConfig.baseUrl}/auth/logout`, userId, {
+//           headers: {
+//               token: `Bearer ${token}`
+//           }
+//       })
+//       dispatch(logoutAccess())
+//       localStorage.removeItem("userInfo")
+//       navigate("/login")
+//   } catch (error) {
+//       dispatch(logoutFail())
+//   }
+// }
 
-export const getUser = async(dispatch, token) => {
-  dispatch(getUsersStart())
-  try {
-      const res = await axios.get(`${apiConfig.baseUrl}/auth` , {
-          headers: {
-              token: `Bearer ${token}`
-          }
-      })
-      dispatch(getUsersAccess(res.data))
-  } catch (error) {
-      dispatch(getUsersFail())
-  }
-}
+// export const getUser = async(dispatch, token) => {
+//   dispatch(getUsersStart())
+//   try {
+//       const res = await axios.get(`${apiConfig.baseUrl}/auth` , {
+//           headers: {
+//               token: `Bearer ${token}`
+//           }
+//       })
+//       dispatch(getUsersAccess(res.data))
+//   } catch (error) {
+//       dispatch(getUsersFail())
+//   }
+// }
 
-export const getAllUser = async(dispatch, token) => {
-  dispatch(getAllUserStart())
-  try {
-      const res = await axios.get(`${apiConfig.baseUrl}/auth` , {
-          headers: {
-              token: `Bearer ${token}`
-          }
-      })
-      dispatch(getAllUserAccess(res.data))
-  } catch (error) {
-      dispatch(getAllUserFail())
-  }
-}
+// export const getAllUser = async(dispatch, token) => {
+//   dispatch(getAllUserStart())
+//   try {
+//       const res = await axios.get(`${apiConfig.baseUrl}/auth` , {
+//           headers: {
+//               token: `Bearer ${token}`
+//           }
+//       })
+//       dispatch(getAllUserAccess(res.data))
+//   } catch (error) {
+//       dispatch(getAllUserFail())
+//   }
+// }
 
 
-export const deleteUser = async (accessToken, dispatch, id) => {
-  dispatch(deleteUserStart());
-  try {
-    const res = await axios.delete(`${apiConfig.baseUrl}/auth/delete/${id}`, {
-      headers: {
-        token: `Bearer ${accessToken}`,
-      },
-    });
-    dispatch(deleteUserSuccess(res.data));
-  } catch (error) {
-    dispatch(deleteUserFail(error.response.data));
-  }
-};
+// export const deleteUser = async (accessToken, dispatch, id) => {
+//   dispatch(deleteUserStart());
+//   try {
+//     const res = await axios.delete(`${apiConfig.baseUrl}/auth/delete/${id}`, {
+//       headers: {
+//         token: `Bearer ${accessToken}`,
+//       },
+//     });
+//     dispatch(deleteUserSuccess(res.data));
+//   } catch (error) {
+//     dispatch(deleteUserFail(error.response.data));
+//   }
+// };
 
-export const updateUser = async (accessToken, dispatch, id, user) => {
-  dispatch(updateUserStart());
-  try {
-    const res = await axios.put(
-      `${apiConfig.baseUrl}/auth/update/${id}`,
-      user,
-      {
-        headers: {
-          token: `Bearer ${accessToken}`,
-        },
-      }
-    );
-    dispatch(updateUserAccess());
-  } catch (error) {
-    dispatch(updateUserFail());
-  }
-};
+// export const updateUser = async (accessToken, dispatch, id, user) => {
+//   dispatch(updateUserStart());
+//   try {
+//     const res = await axios.put(
+//       `${apiConfig.baseUrl}/auth/update/${id}`,
+//       user,
+//       {
+//         headers: {
+//           token: `Bearer ${accessToken}`,
+//         },
+//       }
+//     );
+//     dispatch(updateUserAccess());
+//   } catch (error) {
+//     dispatch(updateUserFail());
+//   }
+// };
 
 export const getAllCate = async (dispatch) => {
   dispatch(getAllCateStart());
@@ -171,7 +172,6 @@ export const getAllQuestion = async (dispatch) => {
   try {
     const res = await axios.get(`${apiConfig.baseUrl}/question/`);
     dispatch(getAllQuestionAccess(res.data));
-    // console.log(res.data);
   } catch (error) {
     dispatch(getAllQuestionFail(error.response.data));
   }

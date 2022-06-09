@@ -4,16 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
 function Sidebar() {
-
-  const navigate = useNavigate()
-  const user = useSelector(state => state.auth.login?.user)
-
-  useEffect(() => {
-    if(!user){
-      navigate("/login")
-    }
-  },[])
-  
   
 return (
   

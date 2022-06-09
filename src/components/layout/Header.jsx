@@ -1,26 +1,36 @@
-import {useEffect} from "react";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import {useEffect, useState} from "react";
+import { Link, useNavigate } from 'react-router-dom';
+import { logOut} from '../../redux/authSlice';
+import { useDispatch, useSelector } from 'react-redux';
+
 
 const Header = ()=>{
-  // const navigate = useNavigate()
-  const user = useSelector(state => state.auth.login?.user)
-
-  // useEffect(() => {
-  //   if(!user){
-  //     navigate("/Login")
-  //   }
-  //   else{
-  //     navigate("/")
-  //   }
-  // },[])
-
+  const {userInfo} = useSelector(state => state.auth)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  useEffect(()=> {  
+    if(!userInfo){
+      navigate('/login')
+    }
+  },[dispatch])
+  const handleLogout = () => {
+    if(userInfo.token){
+      const {token, _id:id} = userInfo
+      dispatch(logOut({token, id}))
+    }
+  }
+  console.log(userInfo)
     return ( 
         <div className="header" id="visible">
         <div className="info">
           <h5><b>HỆ THỐNG HỖ TRỢ CHẨN ĐOÁN Y KHOA</b></h5>
-          {user?(
-            <p className="header-user"><b>Hi, <span>{user.username}</span></b></p>
+          {userInfo?(
+            <div className="d-flex hi">
+            <p className="header-user"><b>Hi, <span>{userInfo.username}</span></b></p>
+            <Link className="logout-btn" to="/#" onClick={handleLogout}>
+            <li className="fa fa-sign-out"></li>
+            </Link>
+            </div>
           ):""} 
         </div>
        

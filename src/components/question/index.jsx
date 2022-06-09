@@ -30,7 +30,6 @@ function Question() {
         getQuestion(id).then(res=> {
         setQuestiondiaplay(res)})
         setAnwserchoice([...anwserchoice, id]);
-        
       }
       //
       
@@ -39,7 +38,6 @@ function Question() {
         setAnwserchoice([...anwserchoice, id]);
         setHidediagnose(false)
         setHidesubdiagnose(false)
-        
         
       }
       const close = () =>{
@@ -52,13 +50,9 @@ function Question() {
           "image": ""
         })
         setHidediagnose(true)
-<<<<<<< HEAD
-=======
         setHidesubdiagnose(true)
         window.scrollTo(0, 0);
         
-
->>>>>>> a00fc0b34611910681086638d583ea991540c8ff
       }
       
       //
@@ -76,14 +70,7 @@ function Question() {
       setHidediagnose(true)
       }
       
-<<<<<<< HEAD
-      const redo = <><div>Lỗi</div> <button onClick={reDo}>Chọn lại</button></>
-=======
-    
-
-      
       const redo = <div className="error"><div>Sai</div> <button onClick={reDo}>Chọn lại</button></div>
->>>>>>> a00fc0b34611910681086638d583ea991540c8ff
       
     return (
         <div className="question col-12">
@@ -104,40 +91,20 @@ function Question() {
                   <div key="tinhuong" className='QUESTION'> 
                   <div className='HIGHLIGHT'>Tình huống</div> {questiondisplay?.description} <br></br><br></br>
                   <img src={questiondisplay?.image} className="center"/>                  
-<<<<<<< HEAD
-                  </div>
-                  
-                  {questiondisplay.diagnose?.map((id)=>(hidediagnose?                                                             
-                  <button className="choice-btn" onClick={()=>handleDiagnose(id._id)}>{id.name}</button>:null))}                  
-                  {!questiondisplay.diagnose.length?redo:null}            
-                  
-=======
                   </div>                  
                   {/** choice diagnose button */}
                   {questiondisplay.diagnose?.map((id,index)=>(hidediagnose?                                                             
                   <button className="choice-btn" key={index} onClick={()=>handleDiagnose(id._id)}>{id.name}</button>:null))} 
                                
-                             
->>>>>>> a00fc0b34611910681086638d583ea991540c8ff
-                  
                   {/*display diagnose */}
                   {JSON.stringify(diagnosedisplay)!="{}"?
                   <div className='QUESTION'>
-<<<<<<< HEAD
-                  <div className='HIGHLIGHT'>Chẩn Đoán sơ bộ </div>{diagnosedisplay.description}                  
-                  </div>:null} 
-                  {diagnosedisplay.subDiagnose?.map(subdiag=>
-                  <button onClick={()=>handleSubdiagnose(subdiag)}>{subdiag}</button>)}
-              
-=======
                   <div className='HIGHLIGHT'>Chẩn Đoán sơ bộ </div>{diagnosedisplay.description}                
                   </div>:null}     
 
                   {/**choice subdiagnose button */}               
                   {diagnosedisplay.subDiagnose?.map((subdiag,index)=>hidesubdiagnose?
                   <button key={index}onClick={()=>handleSubdiagnose(subdiag)}>{subdiag}</button>:null)}
-
->>>>>>> a00fc0b34611910681086638d583ea991540c8ff
 
                   {/*display subdiag */}
                   {JSON.stringify(subdiagnose)!="{}"?

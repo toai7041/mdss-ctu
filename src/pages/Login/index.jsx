@@ -3,7 +3,7 @@ import Input from '../../components/input';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
 import './login.scss';
-import { loginUser } from '../../redux/apiRequest';
+import { logIn } from '../../redux/authSlice';
 import Message from "../../components/LoadingError/Error";
 import Loading from "../../components/LoadingError/Loading";
 import { useDispatch, useSelector } from 'react-redux';
@@ -32,7 +32,7 @@ const Login = () => {
               email: values.email,
               password: values.password
           }
-          loginUser(user, dispatch, navigate )
+          dispatch(logIn({user, navigate}))
       }
   })
  

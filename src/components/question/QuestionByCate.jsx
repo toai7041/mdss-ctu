@@ -4,35 +4,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllQuestion} from '../../redux/apiRequest';
 import Question from "../../components/question";
 import React, { useEffect,useState } from 'react';
-<<<<<<< HEAD
-import Popup from './Popup';
-import { getDiagnose, getQuestion, getSubDiagnose, getTreatment } from './getdata';
-=======
 import { getDiagnose, getQuestion, getSubDiagnose, getTreatment } from './getdata';
 import Popup from "./Popup";
->>>>>>> a00fc0b34611910681086638d583ea991540c8ff
 
 function QuestionByCate() {
-  const [isOpen, setIsOpen] = useState(false)
+  
   var name="";    
-  const [questiondisplay, setQuestiondiaplay] = useState({
-    "_id": "",
-    "diagnose": [],
-    "image": ""
-  })
-  const [hidediagnose, setHidediagnose] = useState(true)
-  const [diagnosedisplay, setDiagnosedisplay] = useState({})
-  const [anwserchoice, setAnwserchoice] =useState([])
-  const [subdiagnose,setSubdiagnose] = useState({})
+  
+  
     const questionByCate = useParams();
     const question = useSelector(state => state.question.questions?.allQuestion)
     const dispatch = useDispatch()
       useEffect(() => {
         getAllQuestion(dispatch)
       },[dispatch])
-
-<<<<<<< HEAD
-=======
 
       //
     const [isOpen, setIsOpen] = useState(false)
@@ -46,7 +31,6 @@ function QuestionByCate() {
     const [diagnosedisplay, setDiagnosedisplay] = useState({})
     const [anwserchoice, setAnwserchoice] =useState([])
     const [subdiagnose,setSubdiagnose] = useState({})
->>>>>>> a00fc0b34611910681086638d583ea991540c8ff
       //
       const handleQuestion = (id) => {
         setIsOpen(true);
@@ -61,10 +45,7 @@ function QuestionByCate() {
         getDiagnose(id).then(res => setDiagnosedisplay(res))
         setAnwserchoice([...anwserchoice, id]);
         setHidediagnose(false)
-<<<<<<< HEAD
-=======
         setHidesubdiagnose(false)
->>>>>>> a00fc0b34611910681086638d583ea991540c8ff
         
         
       }
@@ -78,12 +59,9 @@ function QuestionByCate() {
           "image": ""
         })
         setHidediagnose(true)
-<<<<<<< HEAD
-=======
         setHidesubdiagnose(true)
         
 
->>>>>>> a00fc0b34611910681086638d583ea991540c8ff
       }
       
       //
@@ -98,28 +76,17 @@ function QuestionByCate() {
       setDiagnosedisplay({})
       setSubdiagnose({})
       setHidediagnose(true)
-<<<<<<< HEAD
-      }
-      
-      const redo = <><div>Lỗi</div> <button onClick={reDo}>Chọn lại</button></>
-=======
       setHidediagnose(true)
       }
-
       
       const redo = <><div>Lỗi</div> <button onClick={reDo}>Chọn lại</button></>
     
->>>>>>> a00fc0b34611910681086638d583ea991540c8ff
     return (
          <>
         <Nav />
         <div className="question col-12">
         {question?.map(item =>(item.categories === questionByCate.id?(
-<<<<<<< HEAD
-                <div className="situation col-6 col-md-4 col-lg-2" value={item._id} key={item._id} onClick={()=>handleQuestion(item._id)}>
-=======
                 <div className="situation col-6 col-md-4 col-lg-2" key={item._id} onClick={()=>handleQuestion(item._id)}>
->>>>>>> a00fc0b34611910681086638d583ea991540c8ff
                 <img src={item.image} />
                 <p><b>Tình huống:</b> {item.name}</p>
                 <p><b>Mô tả:</b> {item.description}</p>
@@ -174,11 +141,7 @@ function QuestionByCate() {
                   
                   {questiondisplay.diagnose?.map((id)=>(hidediagnose?                                                             
                   <button className="choice-btn" onClick={()=>handleDiagnose(id._id)}>{id.name}</button>:null))}
-                               
-                             
-                  
-                  
-                  
+                     
                   {/*display diagnose */}
                   {JSON.stringify(diagnosedisplay)!="{}"?
                   <div className='QUESTION'>
@@ -186,9 +149,6 @@ function QuestionByCate() {
                   </div>:null} 
                   {diagnosedisplay.subDiagnose?.map(subdiag=>hidesubdiagnose?
                   <button onClick={()=>handleSubdiagnose(subdiag)}>{subdiag}</button>:null)}
-                  
-
-                  
 
                   {/*display subdiag */}
                   {JSON.stringify(subdiagnose)!="{}"?

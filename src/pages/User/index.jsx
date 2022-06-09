@@ -1,8 +1,8 @@
 import React from 'react';
 import { useEffect, useState } from "react";
 import { deleteUser, getAllUser } from "../../redux/apiRequest";
-import { loginUser } from '../../redux/apiRequest';
-import { logoutRequest} from '../../redux/apiRequest';
+import { logIn} from '../../redux/authSlice';
+import { logOut} from '../../redux/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -15,7 +15,7 @@ function User() {
 
     const handleLogout = () => {
         if(user.token){
-          logoutRequest(dispatch,user.token, user._id, navigate)
+          logOut(dispatch,user.token, user._id, navigate)
         }
       }
     return (
@@ -28,7 +28,7 @@ function User() {
                 <p><b>Email: </b></p>
                 <p><b>Số câu đã làm: </b></p>
                 <p><b>Điểm trung bình: </b></p>
-                <Link className="user-item d-flex" to="/Login" onClick={handleLogout}>
+                <Link className="user-item d-flex" to="/#" onClick={handleLogout}>
                 <li className="fa fa-sign-out">
                 Đăng xuất</li>
               </Link>
