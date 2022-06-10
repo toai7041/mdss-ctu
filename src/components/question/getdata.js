@@ -21,15 +21,6 @@ const getDiagnose = async (id) => {
   }
 };
 
-const getSubDiagnose = async (id) => {
-  try {
-    const { data: res } = await axios.get(`${Url}/subdiagnose/${id}`); //use data destructuring to get data from the promise object
-    return res;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 const getTreatment = async (id) => {
   try {
     const { data: res } = await axios.get(`${Url}/treatment/${id}`); //use data destructuring to get data from the promise object
@@ -39,4 +30,4 @@ const getTreatment = async (id) => {
   }
 };
 
-export { getTreatment, getSubDiagnose, getDiagnose, getQuestion };
+export { getTreatment, getDiagnose, getQuestion };
