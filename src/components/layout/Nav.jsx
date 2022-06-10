@@ -35,7 +35,7 @@ return (
         <div className="submenu nav-item" key={item._id} id={item._id} >
           <li className="nav-item">
             <Link to={`/cate/${item._id}`}>
-            <a className="mnitem" href="/#"> {item.name}</a>
+             {item.name}
             </Link>
           </li>
         </div>
@@ -44,6 +44,7 @@ return (
             {pathname === "/question" || pathname === "/" ?(
             <div className="all">
             <select name="sort" id="sort" onClick={routeChange} defaultValue={"all"}>
+              
              <option selected value={`/question`} >Tất cả</option>
              {cate?.map(item => (
              <option value={`/cate/${item._id}`} key={item._id} >{item.name}</option>
