@@ -64,7 +64,6 @@ body {
   position: fixed;
   margin-left: 0px;
   left: 0px;
-  padding-top: 20px;
 }
 
 .sidebar-menu .active {
@@ -73,11 +72,14 @@ body {
 }
 
 .menu-aside {
+  height: 80%;
   flex-wrap: wrap;
   display: flex;
   list-style: none;
   padding: 0;
   text-align: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .menuitem .fas {

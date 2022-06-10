@@ -5,6 +5,7 @@ import { logIn} from '../../redux/authSlice';
 import { logOut} from '../../redux/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
+import Auth from "../../pages/Login/Login";
 
 function User() {
     const dispatch = useDispatch()
@@ -19,6 +20,7 @@ function User() {
     }
     return (
     <>
+    <Auth/>
     <div className="account">
         <div className="user col-sm-5">
             <div className="user-info">

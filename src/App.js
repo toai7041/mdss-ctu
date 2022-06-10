@@ -11,6 +11,7 @@ import ListQuestion from './pages/Question';
 import Register from './pages/Register';
 import Introduce from './pages/Introduce';
 import User from './pages/User';
+import Document from './pages/Document';
 import QuestionByCate from './components/question/QuestionByCate';
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path='/cate/:id' element={<QuestionByCate />} />
             <Route path='/Question' element={<ListQuestion />} />
             <Route path='/User' element={<User />} />
+            <Route path='/Document' element={<Document />} />
         </Routes>
         </div>
       </div>
