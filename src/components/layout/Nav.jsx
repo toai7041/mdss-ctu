@@ -30,7 +30,7 @@ return (
     <h5><b>Phân loại khoa</b></h5>
 
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav mr-auto">
+      <ul className="navbar-nav">
 
         {cate?.map(item => (
         <div className="submenu nav-item" key={item._id} id={item._id} >
@@ -45,11 +45,11 @@ return (
             
             <div className="all">
             <select name="sort" id="sort" onClick={routeChange} defaultValue={''}>
-            <option  value="">Chọn Khoa</option>
-             <option value={`/question`} >Tất cả</option>
+            <option  value="">-Chọn Khoa-</option>
              {cate?.map(item => (
-             <option value={`/cate/${item._id}`} key={item._id} >{item.name}</option>
-             ))}   
+               <option value={`/cate/${item._id}`} key={item._id} >{item.name}</option>
+               ))}   
+            <option value={`/question`} >Tất cả</option>
             </select>
             </div>
             
