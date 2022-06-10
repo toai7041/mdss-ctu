@@ -55,7 +55,7 @@ body {
 /* sidebar */
 
 .sidebar-menu {
-  width: 70px;
+  width: 60px;
   background-color: var(--color-bg);
   height: 100%;
   margin-right: 10px;
@@ -81,7 +81,7 @@ body {
 }
 
 .menuitem .fas {
-  width: 45px;
+  width: 35px;
 }
 
 .menuitem .fas:hover {
@@ -201,7 +201,7 @@ body {
 
 .content {
   margin-top: 70px;
-  margin-left: 70px;
+  margin-left: 60px;
   margin-right: 15px;
   width: 100%;
   background: var(--color-bg2);
@@ -464,8 +464,12 @@ nav {
   border-radius: 30px;
 }
 
+.nav-item span{
+  padding: 10px;
+  display: inline-block;
+}
 .submenu:hover {
-  transform: scale(0.95);
+  transform: scale(0.98);
 }
 
 .submenu a {
@@ -714,7 +718,7 @@ form a {
   }
 
   .footer {
-    margin-left: 70px;
+    margin-left: 60px;
     text-align: center;
   }
 

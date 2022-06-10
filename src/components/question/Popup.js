@@ -73,7 +73,10 @@ export default function Popup({ open, id, onClose }) {
           {JSON.stringify(diagnosedisplay) !== "{}" ? (
             <div className="QUESTION">
               <div className="HIGHLIGHT-CHOICED">
-                Lựa chọn của bạn: <span>{diagnosedisplay.name}</span>
+
+              <div>
+                Lựa chọn của bạn: </div>
+              <span className="namechoice">{diagnosedisplay.name}</span>
               </div>
               <div className="HIGHLIGHT">Chẩn Đoán sơ bộ </div>
               {diagnosedisplay.description}
