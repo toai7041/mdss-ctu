@@ -12,23 +12,26 @@ export default function Popup({ open, id, onClose }) {
     getQuestion(id).then((res) => setQuestiondiaplay(res));
   }, [id]);
 
-  const [hidediagnose, setHidediagnose] = useState(true);
+  const [hidediagnosebtn, setHidediagnosebtn] = useState(true);
+  const [hidetreatmentbtn, setHidetreatmentbtn] = useState(true);
   const [diagnosedisplay, setDiagnosedisplay] = useState({});
 
   const handleDiagnose = (id) => {
     getDiagnose(id).then((res) => setDiagnosedisplay(res));
-    setHidediagnose(false);
+    setHidediagnosebtn(false);
   };
   const handleClose = () => {
     setQuestiondiaplay({});
     setDiagnosedisplay({});
-    setHidediagnose(true);
+    setHidediagnosebtn(true);
     onClose();
   };
 
+  const handleTreatment = () => {};
+
   const reDo = () => {
     setDiagnosedisplay({});
-    setHidediagnose(true);
+    setHidediagnosebtn(true);
   };
 
   const redo = (
@@ -53,7 +56,7 @@ export default function Popup({ open, id, onClose }) {
           </div>
           {/** choice diagnose button */}
           {questiondisplay.diagnose?.map((id, index) =>
-            hidediagnose ? (
+            hidediagnosebtn ? (
               <button
                 className="choice-btn"
                 key={index}
@@ -65,13 +68,29 @@ export default function Popup({ open, id, onClose }) {
           )}
 
           {/*display diagnose */}
-          {JSON.stringify(diagnosedisplay) != "{}" ? (
+          {JSON.stringify(diagnosedisplay) !== "{}" ? (
             <div className="QUESTION">
+              <div className="HIGHLIGHT-CHOICED">
+                Lựa chọn của bạn: <span>{diagnosedisplay.name}</span>
+              </div>
               <div className="HIGHLIGHT">Chẩn Đoán sơ bộ </div>
               {diagnosedisplay.description}
-              {diagnosedisplay.subDiagnose.length > 0 ? null : redo}
+              <img src={diagnosedisplay.image} />
+              {diagnosedisplay.treatment.length > 0 ? null : redo}
             </div>
           ) : null}
+          {/** choice treatment button */}
+          {diagnosedisplay.treatment?.map((id, index) =>
+            hidetreatmentbtn ? (
+              <button
+                className="choice-btn"
+                key={index}
+                onClick={() => handleTreatment(id)}
+              >
+                {id.name}
+              </button>
+            ) : null
+          )}
         </>
       </div>
     </div>
