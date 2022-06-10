@@ -27,14 +27,14 @@ return (
   </NavLink>
   </li>
 
-  <li className="menu-item" key="4">
+  {/* <li className="menu-item" key="4">
   <NavLink
     className={(navData) => (navData.isActive ? "menuitem active" : 'menuitem')}
     to="/Question"
     data-toggle="popover-hover4" data-content="Tình huống">
       <i className="fas fa-question"></i>
   </NavLink>
-  </li>
+  </li> */}
 
   <li className="menu-item" key="2">
   <NavLink

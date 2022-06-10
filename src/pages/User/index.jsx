@@ -30,8 +30,7 @@ function User() {
                 <p><b>Số câu đã làm: </b></p>
                 <p><b>Điểm trung bình: </b></p>
                 <Link className="user-item d-flex" to="/#" onClick={handleLogout}>
-                <li className="fa fa-sign-out">
-                Đăng xuất</li>
+                <i className="fa fa-sign-out"> Đăng xuất</i>
               </Link>
             </div>
         

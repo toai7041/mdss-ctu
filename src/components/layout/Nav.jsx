@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCate } from '../../redux/apiRequest';
-import { Link} from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useNavigate, useLocation } from "react-router-dom";
 
 function Nav() {
@@ -35,9 +35,11 @@ return (
         {cate?.map(item => (
         <div className="submenu nav-item" key={item._id} id={item._id} >
           <li className="nav-item">
-            <Link to={`/cate/${item._id}`}>
-             <span>{item.name}</span>
-            </Link>
+            <NavLink
+              className={(navData) => (navData.isActive ? "nav-item active" : 'nav-item')}
+              to={`/cate/${item._id}`}>
+               <span>{item.name}</span>
+            </NavLink>
           </li>
         </div>
         ))}
