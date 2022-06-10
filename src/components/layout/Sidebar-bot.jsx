@@ -10,45 +10,37 @@ return (
 <div className="navbar navbar-expand-sm">
 <ul  className="menu-aside2">
 
-  <li className="menu-item2">
+  <li className="menu-item2" key="1">
   <NavLink
-    activeClassName="active"
-    className="menuitem2"
+    className={(navData) => (navData.isActive ? "menuitem2 active" : 'menuitem2')}
     to="/"
-    exact={true} 
     data-toggle="popover-hover">
       <i  className="fas fa-home"></i>
   </NavLink>
   </li>
 
-  <li className="menu-item2">
+  <li className="menu-item2" key="2">
   <NavLink
-    activeClassName="active"
-    className="menuitem2"
+    className={(navData) => (navData.isActive ? "menuitem2 active" : 'menuitem2')}
     to="/Document"
-    exact={true} 
     data-toggle="popover-hover3">
     <i  className="fas fa-book"></i>
   </NavLink>
   </li>
 
-  <li className="menu-item2">
+  <li className="menu-item2" key="3">
   <NavLink
-    activeClassName="active"
-    className="menuitem2"
+    className={(navData) => (navData.isActive ? "menuitem2 active" : 'menuitem2')}
     to="/User"
-    exact={true} 
     data-toggle="popover-hover2">
       <i  className="fas fa-user"></i>
   </NavLink>
   </li>
 
-  <li className="menu-item2">
+  <li className="menu-item2" key="4">
   <NavLink
-    activeClassName="active"
-    className="menuitem2"
+    className={(navData) => (navData.isActive ? "menuitem2 active" : 'menuitem2')}
     to="/Introduce"
-    exact={true} 
     data-toggle="popover-hover4">
       <i className="fas fa-info"></i>
   </NavLink>
