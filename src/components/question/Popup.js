@@ -33,7 +33,8 @@ export default function Popup({ open, id, onClose }) {
 
   const redo = (
     <div className="error">
-      <div>Lỗi</div> <button onClick={reDo}>Chọn lại</button>
+      <div>Không chính xác !!! </div>
+      <button onClick={reDo}>Chọn lại</button>
     </div>
   );
 
@@ -41,7 +42,7 @@ export default function Popup({ open, id, onClose }) {
     <div key="OVERLAY" className="OVERLAY">
       <div key="POPUP" className="POPUP_STYLE">
         <button className="close-btn" onClick={handleClose}>
-          CLOSE
+          X
         </button>
         {/*display question*/}
         <>
@@ -52,6 +53,7 @@ export default function Popup({ open, id, onClose }) {
             <img src={questiondisplay?.image} className="center" />
           </div>
           {/** choice diagnose button */}
+          <div className="choice-diagnose">
           {questiondisplay.diagnose?.map((id, index) =>
             hidediagnose ? (
               <button
@@ -63,7 +65,7 @@ export default function Popup({ open, id, onClose }) {
               </button>
             ) : null
           )}
-
+          </div>
           {/*display diagnose */}
           {JSON.stringify(diagnosedisplay) != "{}" ? (
             <div className="QUESTION">
