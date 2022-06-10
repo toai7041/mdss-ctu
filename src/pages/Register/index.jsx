@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 import {useFormik} from 'formik'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { register } from '../../redux/apiRequest'
+import { addUser} from '../../redux/authSlice'
 function Register() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -32,7 +32,7 @@ function Register() {
                 isAdmin: values.isAdmin,
                 role: values.role
             }
-            dispatch(register(user,dispatch,navigate))
+            dispatch(addUser(user,dispatch,navigate))
         }
     })
     const arr = [

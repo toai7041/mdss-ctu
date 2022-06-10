@@ -12,7 +12,6 @@ export default function Popup({ open, id, onClose }) {
     getQuestion(id).then((res) => setQuestiondiaplay(res));
   }, [id]);
 
-  console.log(questiondisplay._id);
   const [hidediagnose, setHidediagnose] = useState(true);
   const [diagnosedisplay, setDiagnosedisplay] = useState({});
 
@@ -27,7 +26,16 @@ export default function Popup({ open, id, onClose }) {
     onClose();
   };
 
-  const redo = () => {};
+  const reDo = () => {
+    setDiagnosedisplay({});
+    setHidediagnose(true);
+  };
+
+  const redo = (
+    <div className="error">
+      <div>Lỗi</div> <button onClick={reDo}>Chọn lại</button>
+    </div>
+  );
 
   return open ? (
     <div key="OVERLAY" className="OVERLAY">

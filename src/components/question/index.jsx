@@ -18,7 +18,6 @@ function Question() {
         getAllQuestion(dispatch)
       },[dispatch])
 
-
       const close = () =>{
         setIsOpen(false);
         setQuestionId("");
@@ -27,15 +26,13 @@ function Question() {
     return (
         <div className="question col-12">
             {question?.map((item) => (            
-              <><div className="situation col-6 col-md-4 col-lg-2" value={item._id} key={item._id} onClick={()=>handleClick(item._id)}>
+              <div className="situation col-6 col-md-4 col-lg-2" value={item._id} key={item._id} onClick={()=>handleClick(item._id)}>
                   <img src={item.image} />
                   <p>Tình huống: {item.name}</p>
                   <p>Mô tả: {item.description}</p>
                   <p>Điểm TB: {item.averageMark}</p>
-              </div>
-            </>            
+              </div>  
             ))}
-            {console.log(isOpen)}
             {/* POPUP_QUESTION */}
             <Popup open={isOpen} id={questionId} onClose={close}></Popup>
     </div>

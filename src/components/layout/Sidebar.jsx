@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link, NavLink } from "react-router-dom";
+
 
 function Sidebar() {
   
@@ -6,39 +8,59 @@ return (
   
 <div className="sidebar-menu">
 
-  <a href="/">
-    <div className="menuitem" data-toggle="popover-hover" data-content="Trang chủ">
-      <li  className="fa fa-home"></li>
-    </div>
-  </a>
-  
-  {/* <a href="/Question">
-    <div className="menuitem" data-toggle="popover-hover4" data-content="Câu hỏi">
-      <li  className="fa fa-question-circle"></li>
-    </div>
-  </a> */}
-  <a href="/#">
-    <div className="menuitem" data-toggle="popover-hover3" data-content="Tài liệu">
-      <li  className="fa fa-book"></li>
-    </div>
-  </a>
- 
-  <a href="/User">
-    <div className="menuitem" data-toggle="popover-hover2" data-content="Tài khoản">
-      <li  className="fa fa-user"></li>
-    </div>
-  </a>
-  <a href="/Introduce">
-    <div className="menuitem" data-toggle="popover-hover6" data-content="Giới thiệu">
-      <li  className="fa fa-info-circle"></li>
-    </div>
-  </a>
-  <a href="/login">
-    <div className="menuitem" data-toggle="popover-hover5" data-content="Đăng xuất">
-      <li  className="fa fa-sign-out"></li>
-    </div>
-  </a>
+<ul  className="menu-aside">
 
+  <li className="menu-item">
+  <NavLink
+    activeClassName="active"
+    className="menuitem"
+    to="/"
+    exact={true} 
+    data-toggle="popover-hover" data-content="Trang chủ">
+      <i  className="fas fa-home"></i>
+  </NavLink>
+  </li>
+
+  <li className="menu-item">
+  <NavLink
+    activeClassName="active"
+    className="menuitem"
+    to="/Document"
+    exact={true} 
+    data-toggle="popover-hover3" data-content="Tài liệu">
+    <i  className="fas fa-book"></i>
+  </NavLink>
+  </li>
+
+  <li className="menu-item">
+  <NavLink
+    activeClassName="active"
+    className="menuitem"
+    to="/User"
+    exact={true} 
+    data-toggle="popover-hover2" data-content="Tài khoản">
+      <i  className="fas fa-user"></i>
+  </NavLink>
+  </li>
+
+  <li className="menu-item">
+  <NavLink
+    activeClassName="active"
+    className="menuitem"
+    to="/Introduce"
+    exact={true} 
+    data-toggle="popover-hover4" data-content="Giới thiệu">
+      <i className="fas fa-info"></i>
+  </NavLink>
+  </li>
+
+</ul>
+
+{/* <a href="/Question">
+  <div className="menuitem" data-toggle="popover-hover4" data-content="Câu hỏi">
+    <li  className="fa fa-question-circle"></li>
+  </div>
+</a> */}
 </div>
 
 );

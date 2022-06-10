@@ -3,15 +3,17 @@ import Input from '../../components/input';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
 import './login.scss';
-import { loginUser } from '../../redux/apiRequest';
+import { logIn } from '../../redux/authSlice';
+import Message from "../../components/LoadingError/Error";
+import Loading from "../../components/LoadingError/Loading";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from "react";
-import { deleteUser, getAllUser } from "../../redux/apiRequest";
 
-
-
-function Login() {
+const Login = () => {
+    // window.scrollTo(0, 300);
+    const pending = useSelector(state => state.auth.login?.pending)
+    const error = useSelector(state => state.auth.login?.error)
+    const msg = useSelector(state => state.auth.login?.msg)
     const dispatch = useDispatch()
     const navigate = useNavigate()
    
@@ -21,8 +23,8 @@ function Login() {
           password: ""
       },
       validationSchema: Yup.object({
-          email: Yup.string().email().required(" "),
-          password: Yup.string().min(8, "").required(" ")
+          email: Yup.string().email().required("required"),
+          password: Yup.string().min(8, "").required("required")
       }),
 
       onSubmit: (values) => {
@@ -30,7 +32,7 @@ function Login() {
               email: values.email,
               password: values.password
           }
-          loginUser(user,dispatch, navigate)
+          dispatch(logIn({user, navigate}))
       }
   })
  
@@ -38,11 +40,9 @@ function Login() {
     <>
     <div className="account-page">
         <div className="row">
-        
           <div className="form-container col-sm-5">
-           
             <div className="title-log"><h5>Đăng nhập tài khoản</h5></div>
-
+            {pending ? <Loading /> : error && <Message variant="alert-danger">{msg}</Message>}
             <form action="#" method="post" className="login" onSubmit={formik.handleSubmit}>
               <Input
                 className="log"
@@ -79,7 +79,6 @@ function Login() {
         </div>
       </div>
       </>
-  
   )
 }
 
