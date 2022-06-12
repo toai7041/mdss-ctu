@@ -1,15 +1,11 @@
 import React from 'react';
-import { useEffect, useState } from "react";
-import { deleteUser, getAllUser } from "../../redux/apiRequest";
-import { logIn} from '../../redux/authSlice';
 import { logOut} from '../../redux/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import Auth from "../../pages/Login/Login";
 
 function User() {
     const dispatch = useDispatch()
-    const navigate = useNavigate()
     const {userInfo} = useSelector(state => state.auth)
 
     const handleLogout = () => {
@@ -25,8 +21,8 @@ function User() {
         <div className="user col-sm-5">
             <div className="user-info">
                 <div className="user-header"> <h5> <b>Thông tin tài khoản</b></h5></div>
-                <p><b>Họ và Tên: </b></p>
-                <p><b>Email: </b></p>
+                <p><b>Họ và Tên: </b><span>{userInfo.username}</span></p>
+                <p><b>Email: </b><span>{userInfo.id}</span></p>
                 <p><b>Số câu đã làm: </b></p>
                 <p><b>Điểm trung bình: </b></p>
                 <Link className="user-item d-flex" to="/#" onClick={handleLogout}>

@@ -1,5 +1,4 @@
-import {useEffect, useState} from "react";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { logOut} from '../../redux/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -7,12 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 const Header = ()=>{
   const {userInfo} = useSelector(state => state.auth)
   const dispatch = useDispatch()
-  const navigate = useNavigate()
-  useEffect(()=> {  
-    if(!userInfo){
-      navigate('/login')
-    }
-  },[dispatch])
   const handleLogout = () => {
     if(userInfo.token){
       const {token, _id:id} = userInfo

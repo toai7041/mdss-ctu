@@ -7,13 +7,12 @@
     margin-bottom: 30px;
     padding-bottom: 20px;
     &-label{
-        background: #FFFFFF;
         border-radius: 5px;
         text-transform: capitalize;
         position: absolute;
         top: 50%;
-        transform: translateY(-50%);
         left: 11px;
+        font-weight: bold;
         user-select: none;
         pointer-events: none;
         transition: all .25s ease;
@@ -43,6 +42,7 @@
     }
     &-field:not(:placeholder-shown) + &-label,
     &-field:focus + &-label{
+        transform: translateY(-100%);
         color: #000000;
         top:0;
         padding:0 2px;
