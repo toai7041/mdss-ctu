@@ -8,15 +8,19 @@ export default function Popup({ open, id, onClose }) {
     diagnose: [],
     image: "",
   });
+  const [answer, setAnswer] = useState([]);
+
   useEffect(() => {
     getQuestion(id).then((res) => setQuestiondiaplay(res));
+    setAnswer((answer) => [...answer, id]);
   }, [id]);
-
+  const [diagnosedisplay, setDiagnosedisplay] = useState({});
+  const [treatmentdisplay, setTreatmentdisplay] = useState({});
   const [hidediagnosebtn, setHidediagnosebtn] = useState(true);
   const [hidetreatmentbtn, setHidetreatmentbtn] = useState(true);
-  const [diagnosedisplay, setDiagnosedisplay] = useState({});
 
   const handleDiagnose = (id) => {
+    setAnswer((answer) => [...answer, id]);
     getDiagnose(id).then((res) => setDiagnosedisplay(res));
     setHidediagnosebtn(false);
   };
@@ -25,13 +29,24 @@ export default function Popup({ open, id, onClose }) {
     setDiagnosedisplay({});
     setHidediagnosebtn(true);
     onClose();
+    setHidetreatmentbtn(true);
+    setAnswer([id]);
   };
 
-  const handleTreatment = () => {};
+  const handleTreatment = (id) => {
+    setAnswer((answer) => [...answer, id]);
+    setHidetreatmentbtn(false);
+    getTreatment(id).then((res) => setTreatmentdisplay(res));
+    console.log(answer);
+  };
 
   const reDo = () => {
     setDiagnosedisplay({});
     setHidediagnosebtn(true);
+    setTreatmentdisplay({});
+    setHidetreatmentbtn(true);
+    setAnswer();
+    console.log(answer);
   };
 
   const redo = (
@@ -57,17 +72,17 @@ export default function Popup({ open, id, onClose }) {
           </div>
           {/** choice diagnose button */}
           <div className="choice-diagnose">
-          {questiondisplay.diagnose?.map((id, index) =>
-            hidediagnosebtn ? (
-              <button
-                className="choice-btn"
-                key={index}
-                onClick={() => handleDiagnose(id._id)}
-              >
-                {id.name}
-              </button>
-            ) : null
-          )}
+            {questiondisplay.diagnose?.map((id, index) =>
+              hidediagnosebtn ? (
+                <button
+                  className="choice-btn"
+                  key={index}
+                  onClick={() => handleDiagnose(id._id)}
+                >
+                  {id.name}
+                </button>
+              ) : null
+            )}
           </div>
           {/*display diagnose */}
           {JSON.stringify(diagnosedisplay) !== "{}" ? (
@@ -87,12 +102,26 @@ export default function Popup({ open, id, onClose }) {
               <button
                 className="choice-btn"
                 key={index}
-                onClick={() => handleTreatment(id)}
+                onClick={() => handleTreatment(id._id)}
               >
                 {id.name}
               </button>
             ) : null
           )}
+
+          {/*display treatment */}
+          {JSON.stringify(treatmentdisplay) !== "{}" ? (
+            <div className="QUESTION">
+              <div className="HIGHLIGHT-CHOICED">
+                Lựa chọn của bạn: <span>{treatmentdisplay.name}</span>
+              </div>
+              <div className="HIGHLIGHT">Điều trị </div>
+              {treatmentdisplay.desc}
+              <img src={treatmentdisplay.image} />
+              {/* {treatmentdisplay.result?.length > 0 ? null : redo} */}
+              {redo}
+            </div>
+          ) : null}
         </>
       </div>
     </div>

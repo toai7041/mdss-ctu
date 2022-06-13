@@ -30,4 +30,13 @@ const getTreatment = async (id) => {
   }
 };
 
-export { getTreatment, getDiagnose, getQuestion };
+const makeRequest = async (data) => {
+  try {
+    const res = await axios.post({ Url }, { data: data });
+    return res;
+  } catch (e) {
+    // Handle your error here
+  }
+};
+
+export { getTreatment, getDiagnose, getQuestion, makeRequest };
