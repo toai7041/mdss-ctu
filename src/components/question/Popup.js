@@ -18,6 +18,8 @@ export default function Popup({ open, id, onClose }) {
   const [treatmentdisplay, setTreatmentdisplay] = useState({});
   const [hidediagnosebtn, setHidediagnosebtn] = useState(true);
   const [hidetreatmentbtn, setHidetreatmentbtn] = useState(true);
+  const [shownote, setShownote] = useState(false);
+  const [hidenotebtn, setHidenotebtn] = useState(false);
 
   const handleDiagnose = (id) => {
     setAnswer((answer) => [...answer, id]);
@@ -32,6 +34,8 @@ export default function Popup({ open, id, onClose }) {
     setHidetreatmentbtn(true);
     setAnswer([id]);
     setTreatmentdisplay({});
+    setShownote(false);
+    setHidenotebtn(true);
   };
 
   const handleTreatment = (id) => {
@@ -41,6 +45,13 @@ export default function Popup({ open, id, onClose }) {
     console.log(answer);
   };
 
+  const handleResult = () => {};
+
+  const handleNote = () => {
+    setShownote(true);
+    setHidenotebtn(true);
+  };
+
   const reDo = () => {
     setDiagnosedisplay({});
     setHidediagnosebtn(true);
@@ -48,6 +59,8 @@ export default function Popup({ open, id, onClose }) {
     setHidetreatmentbtn(true);
     setAnswer([]);
     console.log(answer);
+    setShownote(false);
+    setHidenotebtn(false);
   };
 
   const redo = (
@@ -56,7 +69,6 @@ export default function Popup({ open, id, onClose }) {
       <button onClick={reDo}>Chọn lại</button>
     </div>
   );
-  const handleResult = () => {};
 
   return open ? (
     <div key="OVERLAY" className="OVERLAY">
@@ -124,20 +136,30 @@ export default function Popup({ open, id, onClose }) {
               <img src={treatmentdisplay.image} />
               <div className="HIGHLIGHT">Kết quả điều trị</div>
               {treatmentdisplay.result}
+              {/* {treatmentdisplay.result?.length > 0 ? null : redo} */}
+            </div>
+          ) : null}
+          {treatmentdisplay.note?.length > 0 ? (
+            hidenotebtn ? null : (
+              <button className="choice-btn" onClick={handleNote}>
+                lưu ý
+              </button>
+            )
+          ) : null}
+          {shownote ? (
+            <>
+              <div className="QUESTION">
+                <div className="HIGHLIGHT">Lưu ý</div>
+                {treatmentdisplay.note}
+              </div>
               <div className="error">
-                Điều trị thành công
+                <div>Điều trị thành công </div>
                 <button onClick={handleClose}>
                   Quay lại trang chọn câu hỏi
                 </button>
               </div>
-              {/* {treatmentdisplay.result?.length > 0 ? null : redo} */}
-            </div>
+            </>
           ) : null}
-          {/* {
-            <button className="choice=btn" onClick={handleResult}>
-              Kết Quả
-            </button>
-          } */}
         </>
       </div>
     </div>
