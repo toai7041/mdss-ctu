@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./popup.css";
-import { getDiagnose, getQuestion, getTreatment } from "./getdata";
+import { getDiagnose, getQuestion, getTreatment, makeRequest } from "./getdata";
 
 export default function Popup({ open, id, onClose }) {
   const [questiondisplay, setQuestiondiaplay] = useState({
@@ -31,6 +31,7 @@ export default function Popup({ open, id, onClose }) {
     onClose();
     setHidetreatmentbtn(true);
     setAnswer([id]);
+    setTreatmentdisplay({});
   };
 
   const handleTreatment = (id) => {
@@ -45,7 +46,7 @@ export default function Popup({ open, id, onClose }) {
     setHidediagnosebtn(true);
     setTreatmentdisplay({});
     setHidetreatmentbtn(true);
-    setAnswer();
+    setAnswer([]);
     console.log(answer);
   };
 
@@ -55,6 +56,7 @@ export default function Popup({ open, id, onClose }) {
       <button onClick={reDo}>Chọn lại</button>
     </div>
   );
+  const handleResult = () => {};
 
   return open ? (
     <div key="OVERLAY" className="OVERLAY">
@@ -88,10 +90,8 @@ export default function Popup({ open, id, onClose }) {
           {JSON.stringify(diagnosedisplay) !== "{}" ? (
             <div className="QUESTION">
               <div className="HIGHLIGHT-CHOICED">
-
-              <div>
-                Lựa chọn của bạn: </div>
-              <span className="namechoice">{diagnosedisplay.name}</span>
+                <div>Lựa chọn của bạn: </div>
+                <span className="namechoice">{diagnosedisplay.name}</span>
               </div>
               <div className="HIGHLIGHT">Chẩn Đoán sơ bộ </div>
               {diagnosedisplay.description}
@@ -116,15 +116,28 @@ export default function Popup({ open, id, onClose }) {
           {JSON.stringify(treatmentdisplay) !== "{}" ? (
             <div className="QUESTION">
               <div className="HIGHLIGHT-CHOICED">
-                Lựa chọn của bạn: <span>{treatmentdisplay.name}</span>
+                Lựa chọn của bạn:{" "}
+                <span className="namechoice">{treatmentdisplay.name}</span>
               </div>
               <div className="HIGHLIGHT">Điều trị </div>
               {treatmentdisplay.desc}
               <img src={treatmentdisplay.image} />
+              <div className="HIGHLIGHT">Kết quả điều trị</div>
+              {treatmentdisplay.result}
+              <div className="error">
+                Điều trị thành công
+                <button onClick={handleClose}>
+                  Quay lại trang chọn câu hỏi
+                </button>
+              </div>
               {/* {treatmentdisplay.result?.length > 0 ? null : redo} */}
-              {redo}
             </div>
           ) : null}
+          {/* {
+            <button className="choice=btn" onClick={handleResult}>
+              Kết Quả
+            </button>
+          } */}
         </>
       </div>
     </div>
