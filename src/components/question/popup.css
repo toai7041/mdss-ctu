@@ -102,13 +102,6 @@
     background:rgb(22, 106, 180);
     border-radius: 5px;
 }
- .error{
-    background-color: red;
-    padding:1rem;
-    border-radius:2rem;
-    color:white;
-    font-size: large;
-}
 
 .error {
     background-color: rgb(225, 29, 29);
