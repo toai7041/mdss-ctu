@@ -112,18 +112,19 @@ export default function Popup({ open, id, onClose }) {
             </div>
           ) : null}
           {/** choice treatment button */}
-          {diagnosedisplay.treatment?.map((id, index) =>
-            hidetreatmentbtn ? (
-              <button
-                className="choice-btn"
-                key={index}
-                onClick={() => handleTreatment(id._id)}
-              >
-                {id.name}
-              </button>
-            ) : null
-          )}
-
+          <div className="choice-diagnose">
+            {diagnosedisplay.treatment?.map((id, index) =>
+              hidetreatmentbtn ? (
+                <button
+                  className="choice-btn"
+                  key={index}
+                  onClick={() => handleTreatment(id._id)}
+                >
+                  {id.name}
+                </button>
+              ) : null
+            )}
+          </div>
           {/*display treatment */}
           {JSON.stringify(treatmentdisplay) !== "{}" ? (
             <div className="QUESTION">
@@ -154,9 +155,7 @@ export default function Popup({ open, id, onClose }) {
               </div>
               <div className="error">
                 <div>Điều trị thành công </div>
-                <button onClick={handleClose}>
-                  Quay lại trang chọn câu hỏi
-                </button>
+                <button onClick={handleClose}>Quay lại trang chủ</button>
               </div>
             </>
           ) : null}

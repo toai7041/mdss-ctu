@@ -117,6 +117,27 @@
     font-weight: bold;
 }
 
+.success{
+    background-color: rgb(29, 225, 98);
+    margin-top: 20px;
+    padding: 1rem;
+    border-radius: 20px;
+    color: darkblue;
+    font-size: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    align-content: center;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+.success button {
+    font-weight: bold;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
 .error button {
     font-weight: bold;
     margin-top: 10px;
