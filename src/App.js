@@ -25,7 +25,7 @@ function App() {
       <Banner/>
       <div className="body">
         <Routes>
-            <Route path="/" element={<Home/>} />
+            <Route path='/' element={<Home/>} />
             <Route path='/Login' element={<Login />} />
             <Route path='/Introduce' element={<Introduce />} />
             <Route path='/Register' element={<Register />} />

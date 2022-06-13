@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
     const navigate = useNavigate()
     useEffect(()=> {  
       if(!userInfo){
-        navigate('/login')
+        navigate('/Login')
       }
     },[dispatch])
     return (  
