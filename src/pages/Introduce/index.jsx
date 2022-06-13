@@ -1,5 +1,9 @@
+import Auth from "../../pages/Login/Login";
+
 function Introduce() {
-return (
+return (<>
+    <Auth/>
+
 <div className="intro">
     <div className="top-intro">
         <p>Chào mừng bạn đã đến với&nbsp;</p>
@@ -18,7 +22,7 @@ return (
         <p>có trải nghiệm sử dụng tốt nhất.&nbsp;</p>
         <p className="Thanks"> Xin cảm ơn!!!</p>
     </div>
-</div>
+</div></>
 );
 }
 

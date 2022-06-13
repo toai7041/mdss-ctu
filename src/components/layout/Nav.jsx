@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCate } from '../../redux/apiRequest';
-import { Link} from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useNavigate, useLocation } from "react-router-dom";
 
 function Nav() {
@@ -17,6 +17,7 @@ function Nav() {
     useEffect(() => {
       getAllCate(dispatch)
     },[])
+  const [current, setCurret] = useState("")
 
 return (
 <>
@@ -29,38 +30,31 @@ return (
     <h5><b>Phân loại khoa</b></h5>
 
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav mr-auto">
+      <ul className="navbar-nav">
 
         {cate?.map(item => (
         <div className="submenu nav-item" key={item._id} id={item._id} >
           <li className="nav-item">
-            <Link to={`/cate/${item._id}`}>
-             {item.name}
-            </Link>
+            <NavLink
+              className={(navData) => (navData.isActive ? "nav-item active" : 'nav-item')}
+              to={`/cate/${item._id}`}>
+               <span>{item.name}</span>
+            </NavLink>
           </li>
         </div>
         ))}
        
-            {pathname === "/question" || pathname === "/" ?(
+            
             <div className="all">
-            <select name="sort" id="sort" onClick={routeChange} defaultValue={"all"}>
-              
-             <option selected value={`/question`} >Tất cả</option>
+            <select name="sort" id="sort" onClick={routeChange} defaultValue={''}>
+            <option  value="">-Chọn Khoa-</option>
              {cate?.map(item => (
-             <option value={`/cate/${item._id}`} key={item._id} >{item.name}</option>
-             ))}   
-            </select>
-            </div> ) 
-            : 
-            (<div className="all">
-            <select name="sort" id="sort" onClick={routeChange}>
+               <option value={`/cate/${item._id}`} key={item._id} >{item.name}</option>
+               ))}   
             <option value={`/question`} >Tất cả</option>
-            {cate?.map(item => (
-            <option selected value={`/cate/${item._id}`} key={item._id} >{item.name}</option>
-            ))}  
             </select>
             </div>
-            )}
+            
       </ul>
     </div>
   </nav>

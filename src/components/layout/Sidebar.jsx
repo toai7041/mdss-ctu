@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, NavLink } from "react-router-dom";
 
+
 function Sidebar() {
   
 return (
@@ -18,15 +19,6 @@ return (
   </NavLink>
   </li>
 
-  <li className="menu-item" key="2">
-  <NavLink
-    className={(navData) => (navData.isActive ? "menuitem active" : 'menuitem')}
-    to="/Document"
-    data-toggle="popover-hover3" data-content="Tài liệu">
-    <i  className="fas fa-book"></i>
-  </NavLink>
-  </li>
-
   <li className="menu-item" key="3">
   <NavLink
     className={(navData) => (navData.isActive ? "menuitem active" : 'menuitem')}
@@ -36,7 +28,25 @@ return (
   </NavLink>
   </li>
 
-  <li className="menu-item" key="4">
+  {/* <li className="menu-item" key="4">
+  <NavLink
+    className={(navData) => (navData.isActive ? "menuitem active" : 'menuitem')}
+    to="/Question"
+    data-toggle="popover-hover4" data-content="Tình huống">
+      <i className="fas fa-question"></i>
+  </NavLink>
+  </li> */}
+
+  <li className="menu-item" key="2">
+  <NavLink
+    className={(navData) => (navData.isActive ? "menuitem active" : 'menuitem')}
+    to="/Document"
+    data-toggle="popover-hover3" data-content="Tài liệu">
+    <i  className="fas fa-book"></i>
+  </NavLink>
+  </li>
+
+  <li className="menu-item" key="5">
   <NavLink
     className={(navData) => (navData.isActive ? "menuitem active" : 'menuitem')}
     to="/Introduce"
@@ -46,12 +56,6 @@ return (
   </li>
 
 </ul>
-
-{/* <a href="/Question">
-  <div className="menuitem" data-toggle="popover-hover4" data-content="Câu hỏi">
-    <li  className="fa fa-question-circle"></li>
-  </div>
-</a> */}
 </div>
 
 );
