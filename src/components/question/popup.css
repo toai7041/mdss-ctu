@@ -23,6 +23,33 @@
     box-shadow: 0 1 4px black;
 }
 
+
+figure{
+    padding-bottom: 10px !important;
+    width: 100% !important;
+    display: flex !important;
+    align-content: center !important;
+    justify-content: center !important;
+    margin: auto !important;
+  }
+
+.se-component{
+    width: 90% !important;
+    margin: auto !important;
+
+}
+
+iframe{
+    margin: 15px 0px !important;
+    width: 90% !important;
+    height: 500px !important;
+}
+
+figure img{
+    margin: 15px 0px !important;
+    width: 90% !important;
+}
+
 .choice-btn {
     font-size: 18px;
     padding: 0.7rem 1.5rem;
@@ -148,6 +175,11 @@
     background: var(--color-bg);
     color:rgb(179, 214, 244);
 }
+@media screen and (max-width: 1200px) {
+    iframe{
+        height: 400px !important;
+    }
+}
 
 @media screen and (max-width: 992px) {
     .choice-diagnose {
@@ -166,6 +198,9 @@
         margin: 5px;
     }
 
+    iframe{
+        height: 330px !important;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -188,6 +223,13 @@
         font-size: 16px;
         margin-bottom: 0.3rem;
     }
+
+    iframe{
+        width: 90% !important;
+        height: 180px !important;
+        display: block !important;
+    }
+    
 
     .center {
         width: 95%;
