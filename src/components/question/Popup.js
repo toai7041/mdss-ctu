@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./popup.css";
 import { getDiagnose, getQuestion, getTreatment, makeRequest } from "./getdata";
-import "suneditor/dist/css/suneditor.min.css";
+// import "suneditor/dist/css/suneditor.min.css";
 
 export default function Popup({ open, id, onClose }) {
   const [questiondisplay, setQuestiondiaplay] = useState({
