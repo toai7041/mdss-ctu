@@ -2,7 +2,6 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.2",
     "@testing-library/jest-dom": "^5.16.4",
@@ -19,6 +18,7 @@
     "react-select": "^5.3.2",
     "reactjs-popup": "^2.0.5",
     "sass": "^1.52.1",
+    "suneditor-react": "^3.4.0",
     "switch": "^0.0.0",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
