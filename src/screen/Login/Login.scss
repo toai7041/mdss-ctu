@@ -1,0 +1,144 @@
+/* colors */
+$darkBlue: #217093;
+$medBlue: #4eb8dd;
+$lightBlue: #ddf1fa;
+$inputBG: #f3fafd;
+
+html {
+  width: 100%;
+  height: 100%;
+}
+body {
+  background: darkslategrey;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  background-color: #fff;
+  margin: 0;
+  padding: 2.25em;
+  box-sizing: border-box;
+  border: solid 1px #ddd;
+  border-radius: 0.5em;
+  font-family: "Source Sans Pro", sans-serif;
+  box-shadow: 0px 10px 20px black;
+}
+
+.inputGroup {
+  margin: 0 0 2em;
+  padding: 0;
+  position: relative;
+}
+
+.inputGroup0 {
+  text-align: center;
+  margin: 0 0 12px;
+  padding: 10px 0;
+  display: block;
+  font-size: 1.3em;
+  color: #07cfae;
+  font-weight: 700;
+  font-family: inherit;
+  border-top: 2px solid #353538cc;
+  border-right: 1px solid #353538cc;
+  border-left: 1px solid #353538cc;
+  border-bottom: 2px solid #353538cc;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.close {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  align-items: center;
+  margin: 0;
+}
+
+.closebtn {
+  font-size: larger;
+  position: absolute;
+  top: 5px;
+  right: 8px;
+}
+
+label {
+  margin: 0 0 5px;
+  display: block;
+  font-size: 1.1em;
+  color: #217093;
+  font-weight: 700;
+  font-family: inherit;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="number"],
+input[type="url"],
+input[type="search"],
+input[type="password"] {
+  display: block;
+  margin: 0;
+  padding: 0.875em 1em 1em;
+  background-color: $inputBG;
+  border: solid 2px $darkBlue;
+  border-radius: 4px;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 65px;
+  font-size: 1em;
+  color: #353538;
+  font-weight: 600;
+  font-family: inherit;
+  box-shadow: 0 2px 2px rgb(129, 126, 126);
+}
+
+button {
+  display: block;
+  margin: 0;
+  padding: 0.65em 1em 1em;
+  background-color: $medBlue;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  box-shadow: none;
+  width: 100%;
+  height: 65px;
+  font-size: 1.4em;
+  color: #fff;
+  font-weight: 600;
+  font-family: inherit;
+  transition: background-color 0.2s ease-out;
+  &:hover,
+  &:active {
+    background-color: $darkBlue;
+  }
+  border-radius: 10px;
+  box-shadow: 0px 2px 2px rgb(110, 110, 110);
+}
+
+.inputGroup2 {
+  input[type="password"] {
+    padding: 0.4em 1em 0.5em;
+  }
+  input[type="text"] {
+    padding: 0.025em 1em 0;
+  }
+}
+
+p {
+  margin: 0px;
+}
